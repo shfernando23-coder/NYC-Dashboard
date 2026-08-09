@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-08-09T12:00:00Z",
+  "source": "seed",
+  "last_run": {
+    "activity_id": 19656017564,
+    "name": "Morning Run",
+    "type_label": "Long run",
+    "date_label": "Saturday 8 Aug",
+    "week_label": "Week 1",
+    "distance_km": 28.0,
+    "distance_mi": 17.4,
+    "pace_per_mi": "8:20",
+    "pace_per_km": "5:11",
+    "avg_hr": 148,
+    "target_km": 21,
+    "vs_plan_km": 7,
+    "coach_note": "<strong>Strong opener.</strong> 28 km at an aerobic HR of 148 the day before Week 1 officially starts is a statement of fitness — that pace/HR combo is well inside sub-3:10 territory. <strong>One flag:</strong> this was a 21 km week on the plan, so 28 km is a real overreach. Protect the next couple of easy days and let recovery catch up before the next hard session."
+  },
+  "recovery": {
+    "date_label": "Saturday 8 Aug",
+    "score": 68,
+    "signal": "caution",
+    "signal_label": "⚠ Caution — keep it easy",
+    "status_label": "Moderate recovery",
+    "advice": "Sleep dipped the night before your long run — REM and total sleep both below your recent average. Keep today easy or take a rest day; save intensity for when the numbers rebound.",
+    "sleep": {
+      "deep": 82,
+      "rem": 47,
+      "efficiency": 86,
+      "restfulness": 71,
+      "timing": 97,
+      "total": 54
+    }
+  }
+}
