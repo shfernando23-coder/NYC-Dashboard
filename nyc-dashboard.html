@@ -389,6 +389,21 @@
   .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-2); }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
 
+  /* FLAGS BANNER */
+  .hidden { display: none !important; }
+  .flags-banner { max-width: 1100px; margin: 0 auto; padding: 0 24px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .flag-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: var(--r-sm); border-left: 3px solid; font-size: 13px; line-height: 1.5; }
+  .flag-critical { background: var(--red-soft); border-color: var(--red); }
+  .flag-warning { background: var(--amber-soft); border-color: var(--amber); }
+  .flag-info { background: var(--blue-soft); border-color: var(--blue); }
+  .flag-icon { flex-shrink: 0; font-size: 14px; }
+  .flag-meta { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; font-weight: 700; }
+  .flag-text { color: var(--text-2); }
+  .flag-text strong { color: var(--text); }
+
+  /* REPORT CARDS (weekly summary / mid-block assessment) */
+  .report-meta { font-size: 11px; color: var(--text-3); margin-top: 12px; }
+
   @media(max-width:768px){
     .grid-2,.grid-3 { grid-template-columns: 1fr; }
     .stat-strip { grid-template-columns: repeat(2,1fr); }
@@ -434,6 +449,9 @@
   <div class="sync-dot" id="sync-dot"></div>
   <span id="sync-label">Loading live data…</span>
 </div>
+
+<!-- FLAGS -->
+<div class="flags-banner hidden" id="flags-banner"></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -805,6 +823,26 @@
     </div>
   </div>
 
+  <!-- WEEKLY SUMMARY -->
+  <div class="card grid-1 hidden" id="weekly-summary-card">
+    <div class="card-label">
+      <div class="card-label-dot" style="background:var(--blue)"></div>
+      Weekly summary
+    </div>
+    <div class="coach-text" id="weekly-summary-text"></div>
+    <div class="report-meta" id="weekly-summary-meta"></div>
+  </div>
+
+  <!-- MID-BLOCK ASSESSMENT -->
+  <div class="card grid-1 hidden" id="block-assessment-card">
+    <div class="card-label">
+      <div class="card-label-dot" style="background:var(--purple)"></div>
+      Mid-block assessment
+    </div>
+    <div class="coach-text" id="block-assessment-text"></div>
+    <div class="report-meta" id="block-assessment-meta"></div>
+  </div>
+
 </div><!-- /main -->
 
 </div><!-- /app -->
@@ -891,7 +929,7 @@
       const sig = SIGNAL_MAP[rec.signal] || SIGNAL_MAP.caution;
       document.getElementById('rec-when').textContent = rec.date_label || 'Last night';
       const scoreEl = document.getElementById('rec-score');
-      scoreEl.textContent = rec.score;
+      scoreEl.textContent = rec.score != null ? rec.score : '—';
       scoreEl.style.color = sig.color;
       document.getElementById('rec-dot').style.background = sig.color;
       const sigEl = document.getElementById('rec-signal');
@@ -901,13 +939,53 @@
       statusEl.textContent = rec.status_label;
       statusEl.style.color = sig.color;
       document.getElementById('rec-advice').textContent = rec.advice;
-      const bars = { deep: 'blue', rem: 'purple', eff: 'green', rest: 'amber', timing: 'green', total: 'blue' };
-      const map = { deep: rec.sleep.deep, rem: rec.sleep.rem, eff: rec.sleep.efficiency, rest: rec.sleep.restfulness, timing: rec.sleep.timing, total: rec.sleep.total };
-      Object.keys(map).forEach(k => {
-        document.getElementById(`sb-${k}-fill`).style.width = map[k] + '%';
-        document.getElementById(`sb-${k}-val`).textContent = map[k];
-      });
+      if (rec.sleep) {
+        const map = { deep: rec.sleep.deep, rem: rec.sleep.rem, eff: rec.sleep.efficiency, rest: rec.sleep.restfulness, timing: rec.sleep.timing, total: rec.sleep.total };
+        Object.keys(map).forEach(k => {
+          document.getElementById(`sb-${k}-fill`).style.width = map[k] + '%';
+          document.getElementById(`sb-${k}-val`).textContent = map[k];
+        });
+      }
     }
+
+    // Adaptive-plan flags (Rule Set 1)
+    const flagsBanner = document.getElementById('flags-banner');
+    if (d.flags && d.flags.length) {
+      const ICONS = { critical: '⛔', warning: '⚠', info: 'ℹ' };
+      flagsBanner.innerHTML = d.flags.slice(-5).reverse().map(f => `
+        <div class="flag-item flag-${f.severity || 'info'}">
+          <span class="flag-icon">${ICONS[f.severity] || 'ℹ'}</span>
+          <div>
+            <div class="flag-meta">${(f.type || 'flag').replace(/_/g, ' ')}${f.week_number ? ' · Week ' + f.week_number : ''}</div>
+            <div class="flag-text">${f.message}</div>
+          </div>
+        </div>
+      `).join('');
+      flagsBanner.classList.remove('hidden');
+    } else {
+      flagsBanner.classList.add('hidden');
+    }
+
+    // Weekly summary (Rule Set 3)
+    const wsCard = document.getElementById('weekly-summary-card');
+    if (d.weekly_summary && d.weekly_summary.text) {
+      document.getElementById('weekly-summary-text').innerHTML = d.weekly_summary.text;
+      document.getElementById('weekly-summary-meta').textContent = 'Week ' + d.weekly_summary.week_number + ' · generated ' + new Date(d.weekly_summary.generated_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      wsCard.classList.remove('hidden');
+    } else {
+      wsCard.classList.add('hidden');
+    }
+
+    // Mid-block assessment (Rule Set 3)
+    const baCard = document.getElementById('block-assessment-card');
+    if (d.block_assessment && d.block_assessment.text) {
+      document.getElementById('block-assessment-text').innerHTML = d.block_assessment.text;
+      document.getElementById('block-assessment-meta').textContent = 'Week ' + d.block_assessment.week_number + ' checkpoint · generated ' + new Date(d.block_assessment.generated_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      baCard.classList.remove('hidden');
+    } else {
+      baCard.classList.add('hidden');
+    }
+
     const dot = document.getElementById('sync-dot');
     const label = document.getElementById('sync-label');
     if (d.updated_at) {
