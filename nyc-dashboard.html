@@ -333,16 +333,35 @@
   .sleep-bar-val { font-size: 11px; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; color: var(--text-2); }
 
   /* VOLUME CHART */
-  .vol-chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; margin: 8px 0; }
-  .vol-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
-  .vol-bar {
-    width: 100%; border-radius: 4px 4px 0 0;
-    position: relative; min-height: 4px;
+  .vol-chart { display: flex; align-items: flex-end; gap: 6px; height: 180px; margin: 8px 0; }
+  .vol-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; min-width: 0; }
+  .vol-bar-value { font-size: 10px; font-weight: 700; color: var(--text-2); white-space: nowrap; }
+  .vol-bar-track {
+    width: 100%; position: relative; box-sizing: border-box;
+    border-radius: 4px 4px 0 0; border: 1px dashed var(--border-2); background: transparent;
   }
-  .vol-bar.planned { background: var(--surface-2); border: 1px solid var(--border-2); }
-  .vol-bar.actual { background: var(--orange); }
-  .vol-bar.current { background: var(--orange-mid); border: 1px solid var(--orange); }
-  .vol-week-label { font-size: 9px; color: var(--text-3); font-weight: 600; }
+  .vol-bar-track.state-actual { border: 1px solid var(--orange-mid); }
+  .vol-bar-track.state-current { border: 1px solid var(--orange-mid); }
+  .vol-bar-fill {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    border-radius: 3px 3px 0 0; background: var(--orange); min-height: 2px;
+  }
+  .vol-bar-remainder {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    border-radius: 3px 3px 0 0; background: var(--orange-mid); border: 1px solid var(--orange);
+    box-sizing: border-box;
+  }
+  .vol-week-label { font-size: 9px; color: var(--text-3); font-weight: 600; white-space: nowrap; }
+  .vol-phase-label { font-size: 8px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; opacity: .75; white-space: nowrap; }
+
+  /* COACH ANALYSIS */
+  .coach-analysis-card {
+    max-width: 1100px; margin: 0 auto 16px; padding: 20px 24px;
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--orange);
+    border-radius: var(--r);
+    font-size: 15px; line-height: 1.7; color: var(--text-2);
+  }
+  .coach-analysis-card strong { color: var(--text); font-weight: 600; }
 
   /* LONG RUNS */
   .long-run-list { display: flex; flex-direction: column; gap: 10px; }
@@ -498,6 +517,9 @@
   </div>
 </div>
 
+<!-- COACH ANALYSIS -->
+<div class="coach-analysis-card hidden" id="coach-analysis-card"></div>
+
 <!-- THIS WEEK + RING -->
 <div class="main">
   <div class="grid-3">
@@ -511,44 +533,9 @@
         <div class="week-badge" id="week-badge">Week 1 · Build</div>
       </div>
 
-      <div class="session-row" id="session-row-mon">
-        <div class="session-dot" id="session-dot-mon" style="background:var(--surface-2)">—</div>
-        <div style="flex:1">
-          <div class="session-day" id="session-day-mon">Mon</div>
-          <div class="session-name">Easy 10 km</div>
-          <div class="session-detail">5:20–5:40/km · conversational effort</div>
-        </div>
-        <span class="session-status s-next" id="session-status-mon">—</span>
-      </div>
-
-      <div class="session-row" id="session-row-wed">
-        <div class="session-dot" id="session-dot-wed" style="background:var(--surface-2)">—</div>
-        <div style="flex:1">
-          <div class="session-day" id="session-day-wed">Wed</div>
-          <div class="session-name">Tempo — 5 km @ threshold</div>
-          <div class="session-detail">3 km WU · 5 km @ 4:15/km · 2 km CD · 10 km total</div>
-        </div>
-        <span class="session-status s-next" id="session-status-wed">—</span>
-      </div>
-
-      <div class="session-row" id="session-row-thu">
-        <div class="session-dot" id="session-dot-thu" style="background:var(--surface-2)">—</div>
-        <div style="flex:1">
-          <div class="session-day" id="session-day-thu">Thu</div>
-          <div class="session-name">Easy 8 km + strides</div>
-          <div class="session-detail">5:20–5:40/km · 6×20 s strides after</div>
-        </div>
-        <span class="session-status s-next" id="session-status-thu">—</span>
-      </div>
-
-      <div class="session-row" id="session-row-sat">
-        <div class="session-dot" id="session-dot-sat" style="background:var(--surface-2)">—</div>
-        <div style="flex:1">
-          <div class="session-day" id="session-day-sat">Sat · Long run</div>
-          <div class="session-name">Long run — all easy</div>
-          <div class="session-detail">5:30/km · no pace work yet · practice gel timing</div>
-        </div>
-        <span class="session-status s-next" id="session-status-sat">—</span>
+      <div id="session-list">
+        <!-- Rendered entirely by JS from plan.json's current week sessions;
+             status (Done/Missed/Today/Upcoming) computed from session.date. -->
       </div>
     </div>
 
@@ -703,19 +690,7 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--orange-mid);border:1px solid var(--orange)"></div>In progress</div>
     </div>
     <div class="vol-chart" id="vol-chart">
-      <!-- Bars are rendered entirely by JS from data.json (volume_history + this_week). -->
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-1" style="height:0%"></div><div class="vol-week-label">W1</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-2" style="height:0%"></div><div class="vol-week-label">W2</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-3" style="height:0%"></div><div class="vol-week-label">W3</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-4" style="height:0%"></div><div class="vol-week-label">W4</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-5" style="height:0%"></div><div class="vol-week-label">W5</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-6" style="height:0%"></div><div class="vol-week-label">W6 🏁</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-7" style="height:0%"></div><div class="vol-week-label">W7</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-8" style="height:0%"></div><div class="vol-week-label">W8</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-9" style="height:0%"></div><div class="vol-week-label">W9 🔥</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-10" style="height:0%"></div><div class="vol-week-label">W10</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-11" style="height:0%"></div><div class="vol-week-label">W11</div></div>
-      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-12" style="height:0%"></div><div class="vol-week-label">W12 🎽</div></div>
+      <!-- Bars, labels, phases, and emojis are all rendered by JS from plan.json + data.json. -->
     </div>
     <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-3); margin-top:4px; padding: 0 4px;">
       <span>10 Aug</span>
@@ -822,45 +797,27 @@
   };
 
   let lastUpdatedAt = null;
+  let cachedPlan = null;
 
   const RING_CIRCUMFERENCE = 364.4;
 
-  // Plan constants -- mirror the ones embedded in the n8n workflows. Not
-  // secret; needed here so session/long-run dates can be computed from
-  // new Date() instead of being stored (and going stale) in data.json.
-  const BLOCK_START = '2026-08-10';
-  const WEEKLY_VOLUME_TARGET_KM = { 1: 54, 2: 60, 3: 66, 4: 49, 5: 70, 6: 54, 7: 55, 8: 74, 9: 78, 10: 70, 11: 54, 12: 23 };
-  const LONG_RUN_TARGET_KM = { 1: 21, 2: 25, 3: 28, 8: 32, 9: 34, 10: 30 };
-  const LONG_RUN_NAMES = {
-    1: 'Week 1 opener',
-    2: '25 km — last 5 at MP',
-    3: '28 km — hill repeats week',
-    8: '32 km — last 10 at MP 🔑',
-    9: '34 km — 2×8 at MP 🔑',
-    10: '30 km dress rehearsal 👟'
-  };
-  const SESSION_SLOTS = [
-    { id: 'mon', offset: 0, day: 'Mon' },
-    { id: 'wed', offset: 2, day: 'Wed' },
-    { id: 'thu', offset: 3, day: 'Thu' },
-    { id: 'sat', offset: 5, day: 'Sat' }
-  ];
+  // Fallback only -- used if plan.json can't be fetched. Not secret.
+  const BLOCK_START_FALLBACK = '2026-08-10';
 
   function isoDateLocal(d) {
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   }
-  function addDays(date, n) {
-    const d = new Date(date);
-    d.setDate(d.getDate() + n);
-    return d;
-  }
   function currentWeekNumberFallback() {
-    const start = new Date(BLOCK_START + 'T00:00:00');
+    const start = new Date(BLOCK_START_FALLBACK + 'T00:00:00');
     const diffDays = Math.floor((new Date() - start) / 86400000);
     return Math.min(12, Math.max(1, Math.floor(diffDays / 7) + 1));
   }
-  function mondayOfWeek(n) {
-    return addDays(new Date(BLOCK_START + 'T00:00:00'), (n - 1) * 7);
+  // Source of truth once plan.json loads: current week from plan.meta.block_start + today.
+  function currentWeekFromPlan(plan) {
+    if (!plan || !plan.meta || !plan.meta.block_start || !Array.isArray(plan.weeks)) return currentWeekNumberFallback();
+    const start = new Date(plan.meta.block_start + 'T00:00:00');
+    const diffDays = Math.floor((new Date() - start) / 86400000);
+    return Math.min(plan.weeks.length, Math.max(1, Math.floor(diffDays / 7) + 1));
   }
   function fmtSyncTimestamp(iso) {
     const dt = new Date(iso);
@@ -869,13 +826,41 @@
     const time = dt.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
     return 'Synced ' + weekday + ' ' + dt.getDate() + ' ' + month + ', ' + time;
   }
+  function fmtPlanDate(iso) {
+    return new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+  }
 
-  // Session status (Mon/Wed/Thu/Sat this week): Missed/Done/Today/Upcoming,
-  // computed from new Date() + this_week.activity_dates -- never trusted
-  // from a static status field. Returns how many are Done for the ring.
-  function renderSessions(d) {
-    const weekNum = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
-    const weekMonday = mondayOfWeek(weekNum);
+  async function fetchPlan() {
+    // Served from this repo, not NYC-Marathon-Tracker: that repo is private,
+    // so raw.githubusercontent.com/.../NYC-Marathon-Tracker/.../plan.json
+    // 404s for every unauthenticated caller (browsers included) -- confirmed
+    // via the GitHub API before wiring this up. plan.json is copied here
+    // alongside data.json; keep the two in sync when the plan changes.
+    try {
+      const res = await fetch('plan.json?_=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw new Error('plan.json not found');
+      return await res.json();
+    } catch (e) {
+      console.warn('plan.json unavailable, falling back to no session/volume/long-run plan data:', e);
+      return null;
+    }
+  }
+
+  // This week's sessions (all days), read directly from plan.json. Status
+  // (Missed/Done/Today/Upcoming) is calculated from browser date vs each
+  // session's own date field -- same rules as before, just applied to real
+  // per-day plan data instead of a fixed Mon/Wed/Thu/Sat slot list. Rest
+  // days don't get a pass/fail badge since nothing was ever "due".
+  function renderSessions(d, plan) {
+    const container = document.getElementById('session-list');
+    if (!container) return 0;
+    if (!plan || !Array.isArray(plan.weeks)) {
+      container.innerHTML = '<div class="session-detail" style="padding:12px 0">Training plan unavailable (plan.json failed to load).</div>';
+      return 0;
+    }
+    const weekNum = currentWeekFromPlan(plan);
+    const week = plan.weeks[weekNum - 1];
+    const sessions = (week && week.sessions) || [];
     const todayLocal = isoDateLocal(new Date());
     const activityDates = (d.this_week && d.this_week.activity_dates) || [];
 
@@ -883,93 +868,150 @@
       done:     { label: 'Done',     cls: 's-done',    dot: '✓', dotBg: 'var(--green-soft)' },
       missed:   { label: 'Missed',   cls: 's-missed',  dot: '✕', dotBg: 'var(--red-soft)' },
       today:    { label: 'Today',    cls: 's-today',   dot: '🏃', dotBg: 'var(--orange-soft)' },
-      upcoming: { label: 'Upcoming', cls: 's-next',    dot: '—', dotBg: 'var(--surface-2)' }
+      upcoming: { label: 'Upcoming', cls: 's-next',    dot: '—', dotBg: 'var(--surface-2)' },
+      rest:     { label: 'Rest',     cls: 's-next',    dot: '·', dotBg: 'var(--surface-2)' }
     };
 
     let doneCount = 0;
-    SESSION_SLOTS.forEach(slot => {
-      const iso = isoDateLocal(addDays(weekMonday, slot.offset));
-      let status;
-      if (iso < todayLocal) status = activityDates.includes(iso) ? 'done' : 'missed';
-      else if (iso === todayLocal) status = 'today';
-      else status = 'upcoming';
-      if (status === 'done') doneCount++;
-
-      const meta = STATUS_META[status];
-      const dayEl = document.getElementById('session-day-' + slot.id);
-      const statusEl = document.getElementById('session-status-' + slot.id);
-      const dotEl = document.getElementById('session-dot-' + slot.id);
-      if (dayEl) dayEl.textContent = slot.day + (slot.id === 'sat' ? ' · Long run' : '') + ' · ' + meta.label;
-      if (statusEl) { statusEl.textContent = meta.label; statusEl.className = 'session-status ' + meta.cls; }
-      if (dotEl) { dotEl.textContent = meta.dot; dotEl.style.background = meta.dotBg; }
-    });
+    container.innerHTML = sessions.map(s => {
+      let statusKey;
+      if (s.type === 'rest') {
+        statusKey = 'rest';
+      } else if (s.date < todayLocal) {
+        statusKey = activityDates.includes(s.date) ? 'done' : 'missed';
+      } else if (s.date === todayLocal) {
+        statusKey = 'today';
+      } else {
+        statusKey = 'upcoming';
+      }
+      if (statusKey === 'done') doneCount++;
+      const meta = STATUS_META[statusKey];
+      const dayLabel = s.day + (statusKey === 'rest' ? '' : ' · ' + meta.label);
+      return '<div class="session-row">'
+        + '<div class="session-dot" style="background:' + meta.dotBg + '">' + meta.dot + '</div>'
+        + '<div style="flex:1">'
+        + '<div class="session-day">' + dayLabel + '</div>'
+        + '<div class="session-name">' + s.name + '</div>'
+        + '<div class="session-detail">' + s.detail + '</div>'
+        + '</div>'
+        + '<span class="session-status ' + meta.cls + '">' + meta.label + '</span>'
+        + '</div>';
+    }).join('');
     return doneCount;
   }
 
-  // 12-week volume chart: current week shows live this_week.actual_km,
-  // past weeks read volume_history (Sunday-snapshotted), future weeks with
-  // no data show the planned target as an outline. Truly null (no target,
-  // no history) = no bar rendered at all, never a broken/zero bar.
-  function renderVolumeChart(d) {
-    const currentWeek = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
-    const history = Array.isArray(d.volume_history) ? d.volume_history : [];
-    const maxVal = Math.max.apply(null, Object.values(WEEKLY_VOLUME_TARGET_KM));
-    for (let n = 1; n <= 12; n++) {
-      const bar = document.getElementById('vol-bar-' + n);
-      if (!bar) continue;
-      const target = WEEKLY_VOLUME_TARGET_KM[n] != null ? WEEKLY_VOLUME_TARGET_KM[n] : null;
-      let heightVal = null, cls = null;
-      if (n === currentWeek) {
-        heightVal = (d.this_week && d.this_week.actual_km != null) ? d.this_week.actual_km : 0;
-        cls = 'vol-bar current';
-      } else if (history[n - 1] != null) {
-        heightVal = history[n - 1];
-        cls = 'vol-bar actual';
-      } else if (target != null) {
-        heightVal = target;
-        cls = 'vol-bar planned';
-      }
-      if (heightVal == null) {
-        bar.style.display = 'none';
-        continue;
-      }
-      bar.style.display = '';
-      bar.style.height = (maxVal ? Math.max(4, Math.min(100, (heightVal / maxVal) * 100)) : 4) + '%';
-      bar.className = cls;
+  // 12-week volume chart, entirely from plan.json + data.json:
+  // - track outline height = planned total_km for that week (peak week = 100%)
+  // - orange fill = actual km (volume_history, or live this_week.actual_km
+  //   for the current week) -- allowed to exceed the track on overreach
+  // - current week additionally gets a lighter-orange "remainder" block
+  //   from actual up to target
+  // - weeks with no target at all (shouldn't happen, but defensive) render
+  //   no bar rather than a broken/zero one
+  function renderVolumeChart(d, plan) {
+    const chart = document.getElementById('vol-chart');
+    if (!chart) return;
+    if (!plan || !Array.isArray(plan.weeks) || !plan.weeks.length) {
+      chart.innerHTML = '<div class="session-detail">Volume plan unavailable (plan.json failed to load).</div>';
+      return;
     }
+    const weeks = plan.weeks;
+    const currentWeek = currentWeekFromPlan(plan);
+    const history = Array.isArray(d.volume_history) ? d.volume_history : [];
+    const maxKm = Math.max.apply(null, weeks.map(w => w.total_km || 0)) || 1;
+    const peakWeek = weeks.reduce((best, w) => (w.total_km > best.total_km ? w : best), weeks[0]).week;
+    const finalWeek = weeks[weeks.length - 1].week;
+    const TRACK_MAX_PX = 110;
+
+    chart.innerHTML = weeks.map(w => {
+      const n = w.week;
+      const targetPx = Math.max(6, (w.total_km / maxKm) * TRACK_MAX_PX);
+      let actual = null;
+      if (n === currentWeek) actual = (d.this_week && d.this_week.actual_km != null) ? d.this_week.actual_km : 0;
+      else if (n < currentWeek) actual = history[n - 1] != null ? history[n - 1] : null;
+
+      let trackClass = '';
+      let fillHtml = '';
+      let valueLabel;
+      if (n === currentWeek) {
+        trackClass = 'state-current';
+        const actualPx = Math.max(0, (actual / maxKm) * TRACK_MAX_PX);
+        fillHtml = '<div class="vol-bar-fill" style="height:' + actualPx + 'px"></div>';
+        if (actual < w.total_km) {
+          const remPx = Math.max(0, targetPx - actualPx);
+          fillHtml += '<div class="vol-bar-remainder" style="height:' + remPx + 'px; bottom:' + actualPx + 'px"></div>';
+        }
+        valueLabel = actual + ' km';
+      } else if (actual != null) {
+        trackClass = 'state-actual';
+        const actualPx = Math.max(0, (actual / maxKm) * TRACK_MAX_PX);
+        fillHtml = '<div class="vol-bar-fill" style="height:' + actualPx + 'px"></div>';
+        valueLabel = actual + ' km';
+      } else {
+        trackClass = 'state-planned';
+        valueLabel = w.total_km + ' km';
+      }
+
+      let emoji = '';
+      if (w.phase === 'Race' && n !== finalWeek) emoji += ' 🏁';
+      if (n === peakWeek) emoji += ' 🔥';
+      if (n === finalWeek) emoji += ' 🎽';
+
+      return '<div class="vol-bar-col">'
+        + '<div class="vol-bar-value">' + valueLabel + '</div>'
+        + '<div class="vol-bar-track ' + trackClass + '" style="height:' + targetPx + 'px">' + fillHtml + '</div>'
+        + '<div class="vol-week-label">W' + n + emoji + '</div>'
+        + '<div class="vol-phase-label">' + w.phase + '</div>'
+        + '</div>';
+    }).join('');
   }
 
-  // Long run tracker: Saturday dates computed from BLOCK_START, actual km
-  // from long_run_history (or the live this_week.long_run_km for the
-  // current week), status computed per date -- never a static field.
-  function renderLongRunTracker(d) {
-    const currentWeek = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
-    const todayLocal = isoDateLocal(new Date());
-    const thisSaturdayIso = isoDateLocal(addDays(mondayOfWeek(currentWeek), 5));
-    const history = Array.isArray(d.long_run_history) ? d.long_run_history : [];
-    const liveKm = d.this_week ? d.this_week.long_run_km : null;
-    const weeks = Object.keys(LONG_RUN_TARGET_KM).map(Number).sort((a, b) => a - b);
+  // Long run tracker, entirely from plan.json: sessions where type is
+  // "long" or "race", on a Sat/Sun. Actual km from long_run_history (or the
+  // live this_week.long_run_km for the current week). Status computed from
+  // date vs today -- Done/Missed/Next/Future, never a static field.
+  function renderLongRunTracker(d, plan) {
     const container = document.getElementById('long-run-list');
     if (!container) return;
+    if (!plan || !Array.isArray(plan.weeks)) {
+      container.innerHTML = '<div class="session-detail">Long run plan unavailable (plan.json failed to load).</div>';
+      return;
+    }
+    const currentWeek = currentWeekFromPlan(plan);
+    const todayLocal = isoDateLocal(new Date());
+    const history = Array.isArray(d.long_run_history) ? d.long_run_history : [];
+    const liveKm = d.this_week ? d.this_week.long_run_km : null;
 
-    container.innerHTML = weeks.map((n, idx) => {
-      const target = LONG_RUN_TARGET_KM[n];
-      const satDate = addDays(mondayOfWeek(n), 5);
-      const satIso = isoDateLocal(satDate);
+    const currentWeekObj = plan.weeks[currentWeek - 1];
+    const thisSaturdayIso = currentWeekObj && (currentWeekObj.sessions.find(s => s.day === 'Sat' || s.day === 'Sun') || {}).date;
+
+    const longSessions = [];
+    plan.weeks.forEach(w => {
+      (w.sessions || []).forEach(s => {
+        if ((s.type === 'long' || s.type === 'race') && (s.day === 'Sat' || s.day === 'Sun')) {
+          longSessions.push({ week: w.week, session: s });
+        }
+      });
+    });
+
+    container.innerHTML = longSessions.map((entry, idx) => {
+      const n = entry.week;
+      const s = entry.session;
+      const target = s.target_km;
       const actual = (n === currentWeek && liveKm != null) ? liveKm : (history[n - 1] != null ? history[n - 1] : null);
 
       let numClass, numContent, statusClass, statusLabel, actualHtml, barPct;
-      if (satIso < todayLocal) {
+      if (s.date < todayLocal) {
         if (actual != null) {
           numClass = 'done-lr'; numContent = '✓'; statusClass = 'lr-done-s'; statusLabel = 'Done';
           actualHtml = '<span style="color:var(--green)">' + actual + ' km' + (actual > target ? ' ↑' : actual < target ? ' ↓' : '') + '</span>';
-          barPct = Math.min(100, Math.round((actual / target) * 100));
+          barPct = target ? Math.min(100, Math.round((actual / target) * 100)) : 0;
         } else {
           numClass = ''; numContent = '✕'; statusClass = 'lr-missed-s'; statusLabel = 'Missed';
           actualHtml = '<span style="color:var(--text-3)">—</span>';
           barPct = 0;
         }
-      } else if (satIso === thisSaturdayIso) {
+      } else if (s.date === thisSaturdayIso) {
         numClass = 'target-lr'; numContent = '→'; statusClass = 'lr-up-s'; statusLabel = 'Next';
         actualHtml = '<span style="color:var(--text-3)">—</span>';
         barPct = 0;
@@ -979,11 +1021,10 @@
         barPct = 0;
       }
 
-      const name = LONG_RUN_NAMES[n] || ('Week ' + n + ' long run');
       return '<div class="lr-row">'
         + '<div class="lr-num ' + numClass + '">' + numContent + '</div>'
-        + '<div class="lr-date">' + satDate.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + '</div>'
-        + '<div class="lr-name">' + name + '</div>'
+        + '<div class="lr-date">' + fmtPlanDate(s.date) + '</div>'
+        + '<div class="lr-name">' + s.name + '</div>'
         + '<div class="lr-target" style="margin-right:8px">target: ' + target + ' km</div>'
         + '<div class="lr-actual">' + actualHtml + '</div>'
         + '<div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:' + barPct + '%"></div></div>'
@@ -992,15 +1033,31 @@
     }).join('');
   }
 
-  function renderData(d) {
-    const meta = d.meta || {};
-    const currentWeek = meta.current_week || currentWeekNumberFallback();
-    const currentPhase = meta.current_phase || 'Build';
+  // Coach analysis card (e.g. on-demand Oura morning read). Hidden entirely
+  // when empty/null -- shows nothing, not an empty card.
+  function renderCoachAnalysis(d) {
+    const card = document.getElementById('coach-analysis-card');
+    if (!card) return;
+    if (d.coach_analysis && String(d.coach_analysis).trim()) {
+      card.innerHTML = d.coach_analysis;
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+      card.innerHTML = '';
+    }
+  }
 
-    document.getElementById('hero-eyebrow').textContent = 'Week ' + currentWeek + ' of 12 · ' + currentPhase + ' Phase';
+  function renderData(d, plan) {
+    const meta = d.meta || {};
+    const currentWeek = plan ? currentWeekFromPlan(plan) : (meta.current_week || currentWeekNumberFallback());
+    const planWeek = plan && plan.weeks ? plan.weeks[currentWeek - 1] : null;
+    const currentPhase = (planWeek && planWeek.phase) || meta.current_phase || 'Build';
+
+    document.getElementById('hero-eyebrow').textContent = 'Week ' + currentWeek + ' of ' + (plan && plan.weeks ? plan.weeks.length : 12) + ' · ' + currentPhase + ' Phase';
     document.getElementById('week-badge').textContent = 'Week ' + currentWeek + ' · ' + currentPhase;
 
-    const w = d.this_week || { actual_km: 0, target_km: WEEKLY_VOLUME_TARGET_KM[currentWeek] || null, sessions_planned: 4, activity_dates: [] };
+    // Stat strip / progress ring: unchanged logic, still driven by this_week.
+    const w = d.this_week || { actual_km: 0, target_km: (planWeek && planWeek.total_km) || null, sessions_planned: 4, activity_dates: [] };
     const actualKm = w.actual_km != null ? w.actual_km : 0;
     document.getElementById('stat-week-km').textContent = actualKm + ' km';
     document.getElementById('stat-week-target').textContent = w.target_km != null ? ('of ' + w.target_km + ' km target') : 'no target set';
@@ -1011,11 +1068,12 @@
     const offset = RING_CIRCUMFERENCE * (1 - Math.min(1, pct / 100));
     document.getElementById('ring-arc').setAttribute('stroke-dashoffset', offset.toFixed(1));
 
-    const doneCount = renderSessions(d);
+    const doneCount = renderSessions(d, plan);
     document.getElementById('ring-sessions-sub').textContent = doneCount + ' of ' + (w.sessions_planned || 4) + ' sessions done';
 
-    renderVolumeChart(d);
-    renderLongRunTracker(d);
+    renderVolumeChart(d, plan);
+    renderLongRunTracker(d, plan);
+    renderCoachAnalysis(d);
 
     if (d.last_run) {
       const r = d.last_run;
@@ -1112,7 +1170,7 @@
       const key = (d.meta && d.meta.last_updated) || d.updated_at;
       if (key !== lastUpdatedAt) {
         lastUpdatedAt = key;
-        renderData(d);
+        renderData(d, cachedPlan);
       }
     } catch (e) {
       document.getElementById('sync-label').textContent = 'Showing sample data — data.json not found yet';
@@ -1120,7 +1178,10 @@
     }
   }
 
-  function startData() {
+  async function startData() {
+    // plan.json is the training plan -- it doesn't change on every poll, so
+    // fetch it once on load rather than every 60s alongside data.json.
+    cachedPlan = await fetchPlan();
     fetchData();
     // Poll for fresh data.json (n8n commits a new one after each Strava activity).
     setInterval(fetchData, 60000);

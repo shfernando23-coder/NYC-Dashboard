@@ -1,0 +1,910 @@
+{
+  "meta": {
+    "athlete": "Shane Fernando",
+    "goal": "Sub 3:10:00",
+    "goal_pace_km": "4:30",
+    "goal_pace_mi": "7:14",
+    "race": "TCS New York City Marathon",
+    "race_date": "2026-11-01",
+    "block_start": "2026-08-10",
+    "block_weeks": 12,
+    "notes": "Plan calibrated to actual fitness: 53km/week trailing average, 71.5km peak week Jul 20, 28km long run at 5:10/km HR 148, 10km at goal pace HR 160. Limiter is not speed — it's sustaining MP deep into the long run. Plan prioritises MP-specific work from Week 8, embedded in long runs rather than added on top."
+  },
+  "pace_zones": {
+    "easy": { "per_km": "5:15-5:45", "per_mi": "8:27-9:15", "hr_cap": 145, "label": "Easy" },
+    "steady": { "per_km": "4:55-5:10", "per_mi": "7:55-8:19", "hr_cap": 155, "label": "Steady" },
+    "mp": { "per_km": "4:30", "per_mi": "7:14", "hr_target": "155-162", "label": "Marathon Pace" },
+    "tempo": { "per_km": "4:10-4:18", "per_mi": "6:42-6:55", "hr_target": "162-170", "label": "Threshold" },
+    "interval": { "per_km": "3:55-4:05", "per_mi": "6:19-6:35", "label": "Interval / VO2" }
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "label": "Week 1",
+      "dates": "10–16 Aug",
+      "phase": "Build",
+      "total_km": 54,
+      "long_run_km": 27,
+      "focus": "Establish rhythm. Matches your current baseline — no artificial ramp. Wednesday tempo is the only quality session.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-08-11",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:20–5:40/km. HR cap 145. Genuinely conversational — if you can't hold a sentence, slow down.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-08-12",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym only. No running.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-08-13",
+          "type": "tempo",
+          "name": "Threshold — 5 km continuous",
+          "detail": "3 km WU @ easy · 5 km @ 4:12–4:18/km (threshold, not all-out) · 2 km CD. Total 10 km. This is your hardest session this week — treat it as such.",
+          "target_km": 10,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-08-14",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ 5:20–5:40/km. 6×20 s strides after at controlled sprint pace — full recovery between each.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-08-15",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off running. Strength if scheduled.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-08-16",
+          "type": "long",
+          "name": "Long run — 27 km easy",
+          "detail": "All @ 5:30/km. No pace work this week. Practice gel protocol: 1 gel every 40 min starting at 40 min. This should feel controlled throughout — if HR climbs above 152 after km 20, slow down.",
+          "target_km": 27,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-08-17",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full recovery. Optional 20-min walk only.",
+          "target_km": 0,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "label": "Week 2",
+      "dates": "17–23 Aug",
+      "phase": "Build",
+      "total_km": 58,
+      "long_run_km": 24,
+      "focus": "Volume steady, long run slightly shorter to let Wednesday's interval session be the quality anchor. First taste of faster work.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-08-17",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:20–5:40/km. HR cap 145.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-08-18",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym only.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-08-19",
+          "type": "interval",
+          "name": "Intervals — 4×1600 m",
+          "detail": "2 km WU · 4×1600 m @ 4:00/km with 90 s jog recovery · 2 km CD. Total 12 km. Rep 1 should feel controlled — you'll know if you go out too fast by rep 3.",
+          "target_km": 12,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-08-20",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ easy. 6×20 s strides after.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-08-21",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-08-22",
+          "type": "long",
+          "name": "Long run — 24 km, last 5 km @ MP",
+          "detail": "19 km @ 5:30/km · then 5 km @ 4:30/km (MP). First MP work of the block. The goal is not to feel the 5 km — it's to learn what 4:30 feels like on tired legs.",
+          "target_km": 24,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-08-23",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "4 km @ 5:45/km or rest. Listen to your body.",
+          "target_km": 4,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "label": "Week 3",
+      "dates": "24–30 Aug",
+      "phase": "Build",
+      "total_km": 66,
+      "long_run_km": 29,
+      "focus": "New long run high — but only 1 km past what you ran pre-block. Safe extension. Tempo gets harder.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-08-24",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "12 km @ 5:20–5:40/km.",
+          "target_km": 12,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-08-25",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-08-26",
+          "type": "tempo",
+          "name": "Tempo — 2×4 km",
+          "detail": "2 km WU · 2×4 km @ 4:12–4:15/km with 3 min float recovery · 2 km CD. Total 13 km. The float should be 5:00/km — not a walk, not a jog, a controlled float.",
+          "target_km": 13,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-08-27",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ easy. No strides — legs need to be fresh for Saturday.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-08-28",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-08-29",
+          "type": "long",
+          "name": "Long run — 29 km, last 8 km @ MP",
+          "detail": "21 km @ 5:30/km · then 8 km @ 4:30/km. This is the first meaningful MP block in a long run. If you can run the last 8 km at 4:30 and still hold form, sub-3:10 is credible.",
+          "target_km": 29,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-08-30",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "5 km @ 5:45+/km. Very easy.",
+          "target_km": 5,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "label": "Week 4",
+      "dates": "31 Aug–6 Sep",
+      "phase": "Recovery",
+      "total_km": 49,
+      "long_run_km": 19,
+      "focus": "Real cutback. Do not add volume because you feel good. This week is where adaptation from weeks 1–3 happens.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-08-31",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:30/km. Slower than normal — this is a recovery week.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-09-01",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-09-02",
+          "type": "interval",
+          "name": "Intervals — 5×1 km",
+          "detail": "2 km WU · 5×1 km @ 3:58/km with 2 min jog · 2 km CD. Total 11 km. Short and sharp — high quality, low volume.",
+          "target_km": 11,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-09-03",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ easy. 6×20 s strides.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-09-04",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-09-05",
+          "type": "long",
+          "name": "Long run — 19 km easy",
+          "detail": "All @ 5:30–5:40/km. No pace work. Pure aerobic recovery run.",
+          "target_km": 19,
+          "key": false
+        },
+        {
+          "day": "Sun",
+          "date": "2026-09-06",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off. No running.",
+          "target_km": 0,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "label": "Week 5",
+      "dates": "7–13 Sep",
+      "phase": "Build",
+      "total_km": 64,
+      "long_run_km": 26,
+      "focus": "Back into build. Volume moderated vs. original plan — 30% jump off cutback is the real constraint. Continuous tempo this week.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-09-07",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "12 km @ 5:20–5:40/km.",
+          "target_km": 12,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-09-08",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-09-09",
+          "type": "tempo",
+          "name": "Tempo — 6 km continuous",
+          "detail": "3 km WU · 6 km @ 4:12/km · 3 km CD. Total 12 km. The longest continuous tempo of the block so far.",
+          "target_km": 12,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-09-10",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "10 km @ easy. Strides after.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-09-11",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-09-12",
+          "type": "long",
+          "name": "Long run — 26 km, 3×5 km @ MP",
+          "detail": "3 km easy · 5 km @ 4:30 · 2 km float · 5 km @ 4:30 · 2 km float · 5 km @ 4:30 · 4 km easy. Total 26 km. Three MP blocks with floats — this is the session that builds confidence in repeating goal pace.",
+          "target_km": 26,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-09-13",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "5 km @ 5:45/km.",
+          "target_km": 5,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "label": "Week 6",
+      "dates": "14–20 Sep",
+      "phase": "Race",
+      "total_km": 56,
+      "long_run_km": 21.1,
+      "focus": "Tune-up half marathon Sunday 20 Sep. Target 1:29–1:32. This is the block's fitness test — under 1:32 confirms sub-3:10, over 1:35 means we recalibrate.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-09-14",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:30/km. Race week starts here — keep it easy.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-09-15",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-09-16",
+          "type": "interval",
+          "name": "Sharpener — 4×1 km",
+          "detail": "2 km WU · 4×1 km @ 3:55/km with 2 min jog · 2 km CD. Total 10 km. Sharp and fast — this primes the legs for Sunday, it doesn't tire them.",
+          "target_km": 10,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-09-17",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ easy. 6×20 s strides.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-09-18",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off. Legs up.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-09-19",
+          "type": "easy",
+          "name": "Shakeout — 5 km + strides",
+          "detail": "5 km very easy + 4×20 s strides. Race kit, race shoes. Get the legs turning over.",
+          "target_km": 5,
+          "key": false
+        },
+        {
+          "day": "Sun",
+          "date": "2026-09-20",
+          "type": "race",
+          "name": "HALF MARATHON — race it",
+          "detail": "Target 1:29–1:32 (4:15–4:22/km). Full race-day rehearsal: same gels, same kit, same breakfast, same warm-up. Do not go out at 4:10 — start at 4:20 and build. The second half should be faster than the first.",
+          "target_km": 21.1,
+          "key": true
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "label": "Week 7",
+      "dates": "21–27 Sep",
+      "phase": "Recovery",
+      "total_km": 47,
+      "long_run_km": 18,
+      "focus": "Genuine recovery post-race. Half marathon damage is real even when it doesn't feel like it. No quality until Saturday.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-09-21",
+          "type": "recovery",
+          "name": "Recovery or rest",
+          "detail": "5 km very easy or full rest. Your choice based on how Sunday felt.",
+          "target_km": 5,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-09-22",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-09-23",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ easy. Strides only if legs feel good.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Thu",
+          "date": "2026-09-24",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:30/km.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-09-25",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-09-26",
+          "type": "long",
+          "name": "Long run — 18 km easy",
+          "detail": "All @ 5:30–5:40/km. Rebuild the aerobic base. No pace work. If legs still feel heavy from the half, slow down further.",
+          "target_km": 18,
+          "key": false
+        },
+        {
+          "day": "Sun",
+          "date": "2026-09-27",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "6 km @ 5:45+/km.",
+          "target_km": 6,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "label": "Week 8",
+      "dates": "28 Sep–4 Oct",
+      "phase": "Peak",
+      "total_km": 66,
+      "long_run_km": 27,
+      "focus": "Peak block begins. MP segments embedded in long run from here — targeting the specific gap: sustaining goal pace deep into a run. Weeks 8–10 are load-bearing, protect them.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-09-28",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "12 km @ 5:20–5:40/km.",
+          "target_km": 12,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-09-29",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-09-30",
+          "type": "tempo",
+          "name": "Tempo — 3×3 km",
+          "detail": "2 km WU · 3×3 km @ 4:10/km with 2 min jog · 3 km CD. Total 14 km.",
+          "target_km": 14,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-10-01",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "10 km @ easy. Strides after.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-10-02",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-10-03",
+          "type": "long",
+          "name": "Long run — 27 km, last 6 km @ MP",
+          "detail": "21 km @ 5:30/km · last 6 km @ 4:30/km. This is where the real work starts. The MP segment comes after 21 km of running — your legs should be honest by then. Full gel protocol.",
+          "target_km": 27,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-10-04",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "6 km @ 5:45+/km.",
+          "target_km": 6,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "label": "Week 9",
+      "dates": "5–11 Oct",
+      "phase": "Peak",
+      "total_km": 76,
+      "long_run_km": 32,
+      "focus": "Peak week — 76 km. Justified by your 71.5 km week in July. Last 10 km of the long run at MP. This is the session that decides the race.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-10-05",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "12 km @ 5:20–5:40/km.",
+          "target_km": 12,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-10-06",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-10-07",
+          "type": "tempo",
+          "name": "Tempo — 8 km continuous",
+          "detail": "3 km WU · 8 km @ 4:15/km · 4 km CD. Total 15 km. Longest continuous tempo of the block.",
+          "target_km": 15,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-10-08",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "10 km @ easy. Strides after.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-10-09",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off. Sleep is training this week.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-10-10",
+          "type": "long",
+          "name": "Long run — 32 km, last 10 km @ MP 🔑",
+          "detail": "22 km @ 5:30/km · last 10 km @ 4:30/km. The key session of the entire block. If you can run 10 km at 4:30 after 22 km on your legs, sub-3:10 is not a stretch — it's a plan. Full race kit, full gel protocol.",
+          "target_km": 32,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-10-11",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "6 km @ 5:45+/km. Expect to feel this one.",
+          "target_km": 6,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "label": "Week 10",
+      "dates": "12–18 Oct",
+      "phase": "Peak",
+      "total_km": 62,
+      "long_run_km": 24,
+      "focus": "Taper starts. Volume drops 3.5 weeks out. MP segment moves to mid-run — tests pace control, not just fatigue resistance. Dress rehearsal for everything.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-10-12",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "12 km @ 5:20–5:40/km.",
+          "target_km": 12,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-10-13",
+          "type": "rest",
+          "name": "Rest or strength",
+          "detail": "Full rest or gym. Last week for strength.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-10-14",
+          "type": "interval",
+          "name": "Intervals — 5×1200 m",
+          "detail": "2 km WU · 5×1200 m @ 3:58/km with 2 min jog · 2 km CD. Total 13 km.",
+          "target_km": 13,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-10-15",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "10 km @ easy. Strides after.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-10-16",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-10-17",
+          "type": "long",
+          "name": "Long run — 24 km, 8 km @ MP mid-run 👟",
+          "detail": "8 km easy · 8 km @ 4:30/km · 8 km easy. MP in the middle — not at the end. This tests whether you can lock into goal pace from a controlled start and then ease off. Race shoes. Race gels. Race breakfast. Nothing new after this.",
+          "target_km": 24,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-10-18",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "5 km @ 5:45+/km.",
+          "target_km": 5,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "label": "Week 11",
+      "dates": "19–25 Oct",
+      "phase": "Taper",
+      "total_km": 46,
+      "long_run_km": 16,
+      "focus": "Taper proper. Volume down ~26% from Week 10. You will feel sluggish and doubt everything. That is the taper working. Trust it.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-10-19",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "10 km @ 5:30/km.",
+          "target_km": 10,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-10-20",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full rest. No gym from here.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-10-21",
+          "type": "tempo",
+          "name": "Sharpener tempo — 3×2 km",
+          "detail": "2 km WU · 3×2 km @ 4:12/km with 90 s jog · 2 km CD. Total 11 km. Sharp, not exhausting. The purpose is neuromuscular, not fitness.",
+          "target_km": 11,
+          "key": true
+        },
+        {
+          "day": "Thu",
+          "date": "2026-10-22",
+          "type": "easy",
+          "name": "Easy + strides",
+          "detail": "8 km @ easy. Strides after.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-10-23",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full day off.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-10-24",
+          "type": "long",
+          "name": "Last long run — 16 km, 4 km @ MP",
+          "detail": "12 km easy · 4 km @ 4:30. Last MP work before race day. Should feel easy. If it doesn't, the taper isn't done yet — slow the rest of the week down.",
+          "target_km": 16,
+          "key": true
+        },
+        {
+          "day": "Sun",
+          "date": "2026-10-25",
+          "type": "recovery",
+          "name": "Recovery run",
+          "detail": "5 km very easy.",
+          "target_km": 5,
+          "key": false
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "label": "Week 12",
+      "dates": "26 Oct–1 Nov",
+      "phase": "Race",
+      "total_km": 20,
+      "long_run_km": 0,
+      "focus": "Race week. Do less than you want to. Carb-load Thu–Sat (8g/kg/day). Travel to NYC Friday. Expo Saturday morning, off your feet by noon.",
+      "sessions": [
+        {
+          "day": "Mon",
+          "date": "2026-10-26",
+          "type": "easy",
+          "name": "Easy run",
+          "detail": "8 km @ 5:30/km. Relaxed. Last real training run.",
+          "target_km": 8,
+          "key": false
+        },
+        {
+          "day": "Tue",
+          "date": "2026-10-27",
+          "type": "rest",
+          "name": "Rest",
+          "detail": "Full rest.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Wed",
+          "date": "2026-10-28",
+          "type": "easy",
+          "name": "MP touch — 4×800 m",
+          "detail": "2 km WU · 4×800 m @ 4:30/km · 2 km CD. Total 6 km. Pace memory only — you're not building fitness, you're reminding your legs what 4:30 feels like.",
+          "target_km": 6,
+          "key": false
+        },
+        {
+          "day": "Thu",
+          "date": "2026-10-29",
+          "type": "easy",
+          "name": "Easy 4 km",
+          "detail": "4 km very easy. Begin carb-loading: rice, pasta, bread, fruit. 8g carb/kg bodyweight.",
+          "target_km": 4,
+          "key": false
+        },
+        {
+          "day": "Fri",
+          "date": "2026-10-30",
+          "type": "rest",
+          "name": "Travel to NYC",
+          "detail": "Fly to NYC. Legs up on the plane. Hydrate. No walking tours.",
+          "target_km": 0,
+          "key": false
+        },
+        {
+          "day": "Sat",
+          "date": "2026-10-31",
+          "type": "easy",
+          "name": "Shakeout 3 km + strides",
+          "detail": "3 km easy + 4×20 s strides. Expo in the morning, done by noon. Lay out kit: Alphafly 3, race bib, gels (GU non-caff early, Roctane caff back half, Maurten CAF 100 late), watch charged. Early night.",
+          "target_km": 3,
+          "key": false
+        },
+        {
+          "day": "Sun",
+          "date": "2026-11-01",
+          "type": "race",
+          "name": "TCS NYC MARATHON — Sub 3:10",
+          "detail": "Start: Staten Island, 9:50 AM corral. Go out at 4:33/km for the first 10 km. Hold 4:30 to Queensboro Bridge (km 24) — do not chase time on the bridges, chase effort. Fifth Ave from km 37 is the race. Maurten CAF 100 at km 35. Cross Central Park finish at sub 3:10.",
+          "target_km": 42.2,
+          "key": true
+        }
+      ]
+    }
+  ]
+}
