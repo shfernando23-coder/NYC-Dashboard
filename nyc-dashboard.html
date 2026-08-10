@@ -252,6 +252,7 @@
   .s-done { background: var(--green-soft); color: var(--green); }
   .s-today { background: var(--orange-soft); color: var(--orange); border: 1px solid var(--orange-mid); }
   .s-next { background: var(--surface-2); color: var(--text-3); }
+  .s-missed { background: var(--red-soft); color: var(--red); }
 
   /* PROGRESS RING */
   .ring-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 8px; }
@@ -367,6 +368,7 @@
   .lr-done-s { background: var(--green-soft); color: var(--green); }
   .lr-up-s { background: var(--orange-soft); color: var(--orange); }
   .lr-future-s { background: var(--surface); color: var(--text-3); border: 1px solid var(--border); }
+  .lr-missed-s { background: var(--red-soft); color: var(--red); }
 
   /* SECTION HEADER */
   .section-header {
@@ -506,47 +508,47 @@
           <div class="card-label-dot" style="background:var(--orange)"></div>
           This week
         </div>
-        <div class="week-badge">Week 1 · Build</div>
+        <div class="week-badge" id="week-badge">Week 1 · Build</div>
       </div>
 
-      <div class="session-row">
-        <div class="session-dot" style="background:var(--green-soft)">✓</div>
+      <div class="session-row" id="session-row-mon">
+        <div class="session-dot" id="session-dot-mon" style="background:var(--surface-2)">—</div>
         <div style="flex:1">
-          <div class="session-day">Mon · done</div>
+          <div class="session-day" id="session-day-mon">Mon</div>
           <div class="session-name">Easy 10 km</div>
           <div class="session-detail">5:20–5:40/km · conversational effort</div>
         </div>
-        <span class="session-status s-done">Done</span>
+        <span class="session-status s-next" id="session-status-mon">—</span>
       </div>
 
-      <div class="session-row" style="background:rgba(252,76,2,0.04); border-radius:8px; padding:12px; margin: 4px -8px; border:1px solid var(--orange-mid)">
-        <div class="session-dot" style="background:var(--orange-soft); font-size:16px">🏃</div>
+      <div class="session-row" id="session-row-wed">
+        <div class="session-dot" id="session-dot-wed" style="background:var(--surface-2)">—</div>
         <div style="flex:1">
-          <div class="session-day" style="color:var(--orange)">Wed · Today</div>
+          <div class="session-day" id="session-day-wed">Wed</div>
           <div class="session-name">Tempo — 5 km @ threshold</div>
           <div class="session-detail">3 km WU · 5 km @ 4:15/km · 2 km CD · 10 km total</div>
         </div>
-        <span class="session-status s-today">Today</span>
+        <span class="session-status s-next" id="session-status-wed">—</span>
       </div>
 
-      <div class="session-row">
-        <div class="session-dot" style="background:var(--surface-2)">—</div>
+      <div class="session-row" id="session-row-thu">
+        <div class="session-dot" id="session-dot-thu" style="background:var(--surface-2)">—</div>
         <div style="flex:1">
-          <div class="session-day">Thu</div>
+          <div class="session-day" id="session-day-thu">Thu</div>
           <div class="session-name">Easy 8 km + strides</div>
           <div class="session-detail">5:20–5:40/km · 6×20 s strides after</div>
         </div>
-        <span class="session-status s-next">Up next</span>
+        <span class="session-status s-next" id="session-status-thu">—</span>
       </div>
 
-      <div class="session-row">
-        <div class="session-dot" style="background:var(--surface-2)">—</div>
+      <div class="session-row" id="session-row-sat">
+        <div class="session-dot" id="session-dot-sat" style="background:var(--surface-2)">—</div>
         <div style="flex:1">
-          <div class="session-day">Sat · Long run</div>
-          <div class="session-name">Long 21 km — all easy</div>
+          <div class="session-day" id="session-day-sat">Sat · Long run</div>
+          <div class="session-name">Long run — all easy</div>
           <div class="session-detail">5:30/km · no pace work yet · practice gel timing</div>
         </div>
-        <span class="session-status s-next">Sat</span>
+        <span class="session-status s-next" id="session-status-sat">—</span>
       </div>
     </div>
 
@@ -700,57 +702,20 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Completed</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--orange-mid);border:1px solid var(--orange)"></div>In progress</div>
     </div>
-    <div class="vol-chart">
-      <!-- W1-12 planned: 54,60,66,49,70,54,55,74,78,70,54,23 -->
-      <!-- heights proportional to max 78 -->
-      <div class="vol-bar-wrap">
-        <div class="vol-bar current" style="height:83%"></div>
-        <div class="vol-week-label">W1</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:77%"></div>
-        <div class="vol-week-label">W2</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:85%"></div>
-        <div class="vol-week-label">W3</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:63%; background:var(--green-soft); border-color:var(--green)"></div>
-        <div class="vol-week-label">W4</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:90%"></div>
-        <div class="vol-week-label">W5</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:69%; background:var(--amber-soft); border-color:var(--amber)"></div>
-        <div class="vol-week-label">W6 🏁</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:71%; background:var(--green-soft); border-color:var(--green)"></div>
-        <div class="vol-week-label">W7</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:95%"></div>
-        <div class="vol-week-label">W8</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:100%; border-color:var(--orange)"></div>
-        <div class="vol-week-label">W9 🔥</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:90%"></div>
-        <div class="vol-week-label">W10</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:69%; background:var(--green-soft); border-color:var(--green)"></div>
-        <div class="vol-week-label">W11</div>
-      </div>
-      <div class="vol-bar-wrap">
-        <div class="vol-bar planned" style="height:30%; background:var(--amber-soft); border-color:var(--amber)"></div>
-        <div class="vol-week-label">W12 🎽</div>
-      </div>
+    <div class="vol-chart" id="vol-chart">
+      <!-- Bars are rendered entirely by JS from data.json (volume_history + this_week). -->
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-1" style="height:0%"></div><div class="vol-week-label">W1</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-2" style="height:0%"></div><div class="vol-week-label">W2</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-3" style="height:0%"></div><div class="vol-week-label">W3</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-4" style="height:0%"></div><div class="vol-week-label">W4</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-5" style="height:0%"></div><div class="vol-week-label">W5</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-6" style="height:0%"></div><div class="vol-week-label">W6 🏁</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-7" style="height:0%"></div><div class="vol-week-label">W7</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-8" style="height:0%"></div><div class="vol-week-label">W8</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-9" style="height:0%"></div><div class="vol-week-label">W9 🔥</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-10" style="height:0%"></div><div class="vol-week-label">W10</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-11" style="height:0%"></div><div class="vol-week-label">W11</div></div>
+      <div class="vol-bar-wrap"><div class="vol-bar" id="vol-bar-12" style="height:0%"></div><div class="vol-week-label">W12 🎽</div></div>
     </div>
     <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-3); margin-top:4px; padding: 0 4px;">
       <span>10 Aug</span>
@@ -765,61 +730,9 @@
       <div class="card-label-dot" style="background:var(--amber)"></div>
       Long run progression · Saturday key sessions
     </div>
-    <div class="long-run-list">
-      <div class="lr-row">
-        <div class="lr-num done-lr">✓</div>
-        <div class="lr-date">9 Aug</div>
-        <div class="lr-name">Week 1 opener</div>
-        <div class="lr-target" style="margin-right:8px">target: 21 km</div>
-        <div class="lr-actual" style="color:var(--green)">28 km ↑</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:100%"></div></div>
-        <span class="lr-status lr-done-s">Done</span>
-      </div>
-      <div class="lr-row">
-        <div class="lr-num target-lr">→</div>
-        <div class="lr-date">16 Aug</div>
-        <div class="lr-name">25 km — last 5 at MP</div>
-        <div class="lr-target" style="margin-right:8px">target: 25 km</div>
-        <div class="lr-actual" style="color:var(--text-3)">—</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:0%"></div></div>
-        <span class="lr-status lr-up-s">Next</span>
-      </div>
-      <div class="lr-row">
-        <div class="lr-num">3</div>
-        <div class="lr-date">23 Aug</div>
-        <div class="lr-name">28 km — hill repeats week</div>
-        <div class="lr-target" style="margin-right:8px">target: 28 km</div>
-        <div class="lr-actual" style="color:var(--text-3)">—</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:0%"></div></div>
-        <span class="lr-status lr-future-s">Wk 3</span>
-      </div>
-      <div class="lr-row">
-        <div class="lr-num">4</div>
-        <div class="lr-date">5 Oct</div>
-        <div class="lr-name">32 km — last 10 at MP 🔑</div>
-        <div class="lr-target" style="margin-right:8px">target: 32 km</div>
-        <div class="lr-actual" style="color:var(--text-3)">—</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:0%"></div></div>
-        <span class="lr-status lr-future-s">Wk 8</span>
-      </div>
-      <div class="lr-row">
-        <div class="lr-num">5</div>
-        <div class="lr-date">12 Oct</div>
-        <div class="lr-name">34 km — 2×8 at MP 🔑</div>
-        <div class="lr-target" style="margin-right:8px">target: 34 km</div>
-        <div class="lr-actual" style="color:var(--text-3)">—</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:0%"></div></div>
-        <span class="lr-status lr-future-s">Wk 9</span>
-      </div>
-      <div class="lr-row">
-        <div class="lr-num">6</div>
-        <div class="lr-date">19 Oct</div>
-        <div class="lr-name">30 km dress rehearsal 👟</div>
-        <div class="lr-target" style="margin-right:8px">target: 30 km</div>
-        <div class="lr-actual" style="color:var(--text-3)">—</div>
-        <div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:0%"></div></div>
-        <span class="lr-status lr-future-s">Wk 10</span>
-      </div>
+    <div class="long-run-list" id="long-run-list">
+      <!-- Rendered entirely by JS: dates, status, and actual km are all computed
+           from BLOCK_START + new Date() + long_run_history. -->
     </div>
   </div>
 
@@ -901,7 +814,7 @@
     });
   });
 
-  // ---- Live data (data.json, written by the n8n webhook workflow) ----
+  // ---- Live data (data.json, written by the n8n workflows) ----
   const SIGNAL_MAP = {
     go:      { label: '✓ Go — train as planned', class: 'sig-go',      color: 'var(--green)' },
     caution: { label: '⚠ Caution — keep it easy', class: 'sig-caution', color: 'var(--amber)' },
@@ -912,22 +825,198 @@
 
   const RING_CIRCUMFERENCE = 364.4;
 
+  // Plan constants -- mirror the ones embedded in the n8n workflows. Not
+  // secret; needed here so session/long-run dates can be computed from
+  // new Date() instead of being stored (and going stale) in data.json.
+  const BLOCK_START = '2026-08-10';
+  const WEEKLY_VOLUME_TARGET_KM = { 1: 54, 2: 60, 3: 66, 4: 49, 5: 70, 6: 54, 7: 55, 8: 74, 9: 78, 10: 70, 11: 54, 12: 23 };
+  const LONG_RUN_TARGET_KM = { 1: 21, 2: 25, 3: 28, 8: 32, 9: 34, 10: 30 };
+  const LONG_RUN_NAMES = {
+    1: 'Week 1 opener',
+    2: '25 km — last 5 at MP',
+    3: '28 km — hill repeats week',
+    8: '32 km — last 10 at MP 🔑',
+    9: '34 km — 2×8 at MP 🔑',
+    10: '30 km dress rehearsal 👟'
+  };
+  const SESSION_SLOTS = [
+    { id: 'mon', offset: 0, day: 'Mon' },
+    { id: 'wed', offset: 2, day: 'Wed' },
+    { id: 'thu', offset: 3, day: 'Thu' },
+    { id: 'sat', offset: 5, day: 'Sat' }
+  ];
+
+  function isoDateLocal(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function addDays(date, n) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+  function currentWeekNumberFallback() {
+    const start = new Date(BLOCK_START + 'T00:00:00');
+    const diffDays = Math.floor((new Date() - start) / 86400000);
+    return Math.min(12, Math.max(1, Math.floor(diffDays / 7) + 1));
+  }
+  function mondayOfWeek(n) {
+    return addDays(new Date(BLOCK_START + 'T00:00:00'), (n - 1) * 7);
+  }
+  function fmtSyncTimestamp(iso) {
+    const dt = new Date(iso);
+    const weekday = dt.toLocaleDateString(undefined, { weekday: 'short' });
+    const month = dt.toLocaleDateString(undefined, { month: 'short' });
+    const time = dt.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+    return 'Synced ' + weekday + ' ' + dt.getDate() + ' ' + month + ', ' + time;
+  }
+
+  // Session status (Mon/Wed/Thu/Sat this week): Missed/Done/Today/Upcoming,
+  // computed from new Date() + this_week.activity_dates -- never trusted
+  // from a static status field. Returns how many are Done for the ring.
+  function renderSessions(d) {
+    const weekNum = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
+    const weekMonday = mondayOfWeek(weekNum);
+    const todayLocal = isoDateLocal(new Date());
+    const activityDates = (d.this_week && d.this_week.activity_dates) || [];
+
+    const STATUS_META = {
+      done:     { label: 'Done',     cls: 's-done',    dot: '✓', dotBg: 'var(--green-soft)' },
+      missed:   { label: 'Missed',   cls: 's-missed',  dot: '✕', dotBg: 'var(--red-soft)' },
+      today:    { label: 'Today',    cls: 's-today',   dot: '🏃', dotBg: 'var(--orange-soft)' },
+      upcoming: { label: 'Upcoming', cls: 's-next',    dot: '—', dotBg: 'var(--surface-2)' }
+    };
+
+    let doneCount = 0;
+    SESSION_SLOTS.forEach(slot => {
+      const iso = isoDateLocal(addDays(weekMonday, slot.offset));
+      let status;
+      if (iso < todayLocal) status = activityDates.includes(iso) ? 'done' : 'missed';
+      else if (iso === todayLocal) status = 'today';
+      else status = 'upcoming';
+      if (status === 'done') doneCount++;
+
+      const meta = STATUS_META[status];
+      const dayEl = document.getElementById('session-day-' + slot.id);
+      const statusEl = document.getElementById('session-status-' + slot.id);
+      const dotEl = document.getElementById('session-dot-' + slot.id);
+      if (dayEl) dayEl.textContent = slot.day + (slot.id === 'sat' ? ' · Long run' : '') + ' · ' + meta.label;
+      if (statusEl) { statusEl.textContent = meta.label; statusEl.className = 'session-status ' + meta.cls; }
+      if (dotEl) { dotEl.textContent = meta.dot; dotEl.style.background = meta.dotBg; }
+    });
+    return doneCount;
+  }
+
+  // 12-week volume chart: current week shows live this_week.actual_km,
+  // past weeks read volume_history (Sunday-snapshotted), future weeks with
+  // no data show the planned target as an outline. Truly null (no target,
+  // no history) = no bar rendered at all, never a broken/zero bar.
+  function renderVolumeChart(d) {
+    const currentWeek = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
+    const history = Array.isArray(d.volume_history) ? d.volume_history : [];
+    const maxVal = Math.max.apply(null, Object.values(WEEKLY_VOLUME_TARGET_KM));
+    for (let n = 1; n <= 12; n++) {
+      const bar = document.getElementById('vol-bar-' + n);
+      if (!bar) continue;
+      const target = WEEKLY_VOLUME_TARGET_KM[n] != null ? WEEKLY_VOLUME_TARGET_KM[n] : null;
+      let heightVal = null, cls = null;
+      if (n === currentWeek) {
+        heightVal = (d.this_week && d.this_week.actual_km != null) ? d.this_week.actual_km : 0;
+        cls = 'vol-bar current';
+      } else if (history[n - 1] != null) {
+        heightVal = history[n - 1];
+        cls = 'vol-bar actual';
+      } else if (target != null) {
+        heightVal = target;
+        cls = 'vol-bar planned';
+      }
+      if (heightVal == null) {
+        bar.style.display = 'none';
+        continue;
+      }
+      bar.style.display = '';
+      bar.style.height = (maxVal ? Math.max(4, Math.min(100, (heightVal / maxVal) * 100)) : 4) + '%';
+      bar.className = cls;
+    }
+  }
+
+  // Long run tracker: Saturday dates computed from BLOCK_START, actual km
+  // from long_run_history (or the live this_week.long_run_km for the
+  // current week), status computed per date -- never a static field.
+  function renderLongRunTracker(d) {
+    const currentWeek = (d.meta && d.meta.current_week) || currentWeekNumberFallback();
+    const todayLocal = isoDateLocal(new Date());
+    const thisSaturdayIso = isoDateLocal(addDays(mondayOfWeek(currentWeek), 5));
+    const history = Array.isArray(d.long_run_history) ? d.long_run_history : [];
+    const liveKm = d.this_week ? d.this_week.long_run_km : null;
+    const weeks = Object.keys(LONG_RUN_TARGET_KM).map(Number).sort((a, b) => a - b);
+    const container = document.getElementById('long-run-list');
+    if (!container) return;
+
+    container.innerHTML = weeks.map((n, idx) => {
+      const target = LONG_RUN_TARGET_KM[n];
+      const satDate = addDays(mondayOfWeek(n), 5);
+      const satIso = isoDateLocal(satDate);
+      const actual = (n === currentWeek && liveKm != null) ? liveKm : (history[n - 1] != null ? history[n - 1] : null);
+
+      let numClass, numContent, statusClass, statusLabel, actualHtml, barPct;
+      if (satIso < todayLocal) {
+        if (actual != null) {
+          numClass = 'done-lr'; numContent = '✓'; statusClass = 'lr-done-s'; statusLabel = 'Done';
+          actualHtml = '<span style="color:var(--green)">' + actual + ' km' + (actual > target ? ' ↑' : actual < target ? ' ↓' : '') + '</span>';
+          barPct = Math.min(100, Math.round((actual / target) * 100));
+        } else {
+          numClass = ''; numContent = '✕'; statusClass = 'lr-missed-s'; statusLabel = 'Missed';
+          actualHtml = '<span style="color:var(--text-3)">—</span>';
+          barPct = 0;
+        }
+      } else if (satIso === thisSaturdayIso) {
+        numClass = 'target-lr'; numContent = '→'; statusClass = 'lr-up-s'; statusLabel = 'Next';
+        actualHtml = '<span style="color:var(--text-3)">—</span>';
+        barPct = 0;
+      } else {
+        numClass = ''; numContent = String(idx + 1); statusClass = 'lr-future-s'; statusLabel = 'Wk ' + n;
+        actualHtml = '<span style="color:var(--text-3)">—</span>';
+        barPct = 0;
+      }
+
+      const name = LONG_RUN_NAMES[n] || ('Week ' + n + ' long run');
+      return '<div class="lr-row">'
+        + '<div class="lr-num ' + numClass + '">' + numContent + '</div>'
+        + '<div class="lr-date">' + satDate.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + '</div>'
+        + '<div class="lr-name">' + name + '</div>'
+        + '<div class="lr-target" style="margin-right:8px">target: ' + target + ' km</div>'
+        + '<div class="lr-actual">' + actualHtml + '</div>'
+        + '<div class="lr-bar-wrap"><div class="lr-bar-fill" style="width:' + barPct + '%"></div></div>'
+        + '<span class="lr-status ' + statusClass + '">' + statusLabel + '</span>'
+        + '</div>';
+    }).join('');
+  }
+
   function renderData(d) {
-    if (d.week_number) {
-      document.getElementById('hero-eyebrow').textContent = 'Week ' + d.week_number + ' of 12 · ' + (d.phase || 'Build') + ' Phase';
-    }
-    if (d.this_week) {
-      const w = d.this_week;
-      document.getElementById('stat-week-km').textContent = w.actual_km + ' km';
-      document.getElementById('stat-week-target').textContent = w.target_km != null ? ('of ' + w.target_km + ' km target') : 'no target set';
-      document.getElementById('ring-km').textContent = w.actual_km;
-      document.getElementById('ring-target').textContent = w.target_km != null ? ('of ' + w.target_km + ' km') : 'no target';
-      const pct = w.target_km ? Math.round((w.actual_km / w.target_km) * 100) : 0;
-      document.getElementById('ring-pct').textContent = pct + '%';
-      const offset = RING_CIRCUMFERENCE * (1 - Math.min(1, pct / 100));
-      document.getElementById('ring-arc').setAttribute('stroke-dashoffset', offset.toFixed(1));
-      document.getElementById('ring-sessions-sub').textContent = w.sessions_done + ' of ' + (w.sessions_planned || 4) + ' sessions done';
-    }
+    const meta = d.meta || {};
+    const currentWeek = meta.current_week || currentWeekNumberFallback();
+    const currentPhase = meta.current_phase || 'Build';
+
+    document.getElementById('hero-eyebrow').textContent = 'Week ' + currentWeek + ' of 12 · ' + currentPhase + ' Phase';
+    document.getElementById('week-badge').textContent = 'Week ' + currentWeek + ' · ' + currentPhase;
+
+    const w = d.this_week || { actual_km: 0, target_km: WEEKLY_VOLUME_TARGET_KM[currentWeek] || null, sessions_planned: 4, activity_dates: [] };
+    const actualKm = w.actual_km != null ? w.actual_km : 0;
+    document.getElementById('stat-week-km').textContent = actualKm + ' km';
+    document.getElementById('stat-week-target').textContent = w.target_km != null ? ('of ' + w.target_km + ' km target') : 'no target set';
+    document.getElementById('ring-km').textContent = actualKm;
+    document.getElementById('ring-target').textContent = w.target_km != null ? ('of ' + w.target_km + ' km') : 'no target';
+    const pct = w.target_km ? Math.round((actualKm / w.target_km) * 100) : 0;
+    document.getElementById('ring-pct').textContent = pct + '%';
+    const offset = RING_CIRCUMFERENCE * (1 - Math.min(1, pct / 100));
+    document.getElementById('ring-arc').setAttribute('stroke-dashoffset', offset.toFixed(1));
+
+    const doneCount = renderSessions(d);
+    document.getElementById('ring-sessions-sub').textContent = doneCount + ' of ' + (w.sessions_planned || 4) + ' sessions done';
+
+    renderVolumeChart(d);
+    renderLongRunTracker(d);
+
     if (d.last_run) {
       const r = d.last_run;
       document.getElementById('lr-title').textContent = `${r.name} · ${r.distance_km.toFixed(1)} km`;
@@ -944,7 +1033,10 @@
     if (d.recovery) {
       const rec = d.recovery;
       const sig = SIGNAL_MAP[rec.signal] || SIGNAL_MAP.caution;
-      document.getElementById('rec-when').textContent = rec.date_label || 'Last night';
+      const recDateLabel = rec.date
+        ? new Date(rec.date + 'T00:00:00').toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' })
+        : (rec.date_label || 'Last night');
+      document.getElementById('rec-when').textContent = recDateLabel;
       const scoreEl = document.getElementById('rec-score');
       scoreEl.textContent = rec.score != null ? rec.score : '—';
       scoreEl.style.color = sig.color;
@@ -1005,9 +1097,9 @@
 
     const dot = document.getElementById('sync-dot');
     const label = document.getElementById('sync-label');
-    if (d.updated_at) {
-      const dt = new Date(d.updated_at);
-      label.textContent = 'Synced ' + dt.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    const lastUpdated = meta.last_updated || d.updated_at;
+    if (lastUpdated) {
+      label.textContent = fmtSyncTimestamp(lastUpdated);
       dot.classList.remove('stale');
     }
   }
@@ -1017,8 +1109,9 @@
       const res = await fetch('data.json?_=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) throw new Error('no data.json yet');
       const d = await res.json();
-      if (d.updated_at !== lastUpdatedAt) {
-        lastUpdatedAt = d.updated_at;
+      const key = (d.meta && d.meta.last_updated) || d.updated_at;
+      if (key !== lastUpdatedAt) {
+        lastUpdatedAt = key;
         renderData(d);
       }
     } catch (e) {
