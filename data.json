@@ -1,4 +1,36 @@
 {
-  "coach_analysis": "",
-  "updated_at": "2026-08-10T19:04:23.843Z"
+  "updated_at": "2026-08-10T20:30:00.000Z",
+  "source": "manual-backfill",
+  "meta": {
+    "block_start": "2026-08-10",
+    "current_week": 1,
+    "current_phase": "Build",
+    "last_updated": "2026-08-10T20:30:00.000Z"
+  },
+  "this_week": {
+    "week_number": 1,
+    "phase": "Build",
+    "actual_km": 9.53,
+    "target_km": 54,
+    "sessions_done": 1,
+    "sessions_planned": 4,
+    "activity_dates": ["2026-08-10"],
+    "long_run_km": null
+  },
+  "last_run": {
+    "activity_id": 19686887086,
+    "name": "Easy Run",
+    "type_label": "Easy run",
+    "date_label": "Monday 10 Aug",
+    "week_label": "Week 1",
+    "distance_km": 9.53,
+    "distance_mi": 5.92,
+    "pace_per_mi": "9:41",
+    "pace_per_km": "6:01",
+    "avg_hr": 133,
+    "target_km": 10,
+    "vs_plan_km": -0.5,
+    "coach_note": ""
+  },
+  "coach_analysis": ""
 }
