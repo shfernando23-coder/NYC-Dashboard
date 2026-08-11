@@ -242,6 +242,9 @@
     font-size: 14px;
   }
   .session-day { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--text-3); text-transform: uppercase; }
+  .session-day-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .session-weather { font-size: 11px; font-weight: 600; color: var(--text-3); white-space: nowrap; display: flex; align-items: center; gap: 3px; letter-spacing: normal; text-transform: none; }
+  .session-weather-icon { font-size: 13px; }
   .session-name { font-size: 14px; font-weight: 600; margin: 2px 0; }
   .session-detail { font-size: 12px; color: var(--text-2); line-height: 1.45; }
   .session-km { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--text-2); flex-shrink: 0; }
@@ -745,6 +748,7 @@
     gate.classList.add('hidden');
     app.classList.add('visible');
     startData();
+    startWeather();
   }
 
   function tryUnlock() {
@@ -792,6 +796,7 @@
 
   let lastUpdatedAt = null;
   let cachedPlan = null;
+  let cachedWeather = null;
 
   const RING_CIRCUMFERENCE = 364.4;
 
@@ -884,7 +889,10 @@
       return '<div class="session-row">'
         + '<div class="session-dot" style="background:' + meta.dotBg + '">' + meta.dot + '</div>'
         + '<div style="flex:1">'
+        + '<div class="session-day-row">'
         + '<div class="session-day">' + dayLabel + '</div>'
+        + '<div class="session-weather" data-weather="' + s.date + '"></div>'
+        + '</div>'
         + '<div class="session-name">' + s.name + '</div>'
         + '<div class="session-detail">' + s.detail + '</div>'
         + '</div>'
@@ -1063,6 +1071,7 @@
     document.getElementById('ring-arc').setAttribute('stroke-dashoffset', offset.toFixed(1));
 
     const doneCount = renderSessions(d, plan);
+    if (cachedWeather) renderWeather(cachedWeather);
     document.getElementById('ring-sessions-sub').textContent = doneCount + ' of ' + (w.sessions_planned || 4) + ' sessions done';
 
     renderVolumeChart(d, plan);
@@ -1179,6 +1188,72 @@
     fetchData();
     // Poll for fresh data.json (n8n commits a new one after each Strava activity).
     setInterval(fetchData, 60000);
+  }
+
+  // ---- Weather (Open-Meteo, client-side, no API key) ----
+  const CHI_LAT = 41.8781;
+  const CHI_LON = -87.6298;
+  const WEATHER_CACHE_KEY = 'nycdash-weather-v1';
+  const WEATHER_CACHE_TTL_MS = 3 * 60 * 60 * 1000; // 3 hours
+
+  const WEATHER_ICONS = {
+    0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️',
+    45: '🌫️', 48: '🌫️',
+    51: '🌦️', 53: '🌦️', 55: '🌦️',
+    56: '🌧️', 57: '🌧️',
+    61: '🌧️', 63: '🌧️', 65: '🌧️',
+    66: '🌧️', 67: '🌧️',
+    71: '🌨️', 73: '🌨️', 75: '🌨️', 77: '🌨️',
+    80: '🌦️', 81: '🌧️', 82: '🌧️',
+    85: '🌨️', 86: '🌨️',
+    95: '⛈️', 96: '⛈️', 99: '⛈️'
+  };
+
+  function weatherIcon(code) {
+    return WEATHER_ICONS[code] || '🌡️';
+  }
+
+  // Applies cached forecast data to whatever [data-weather] slots exist right
+  // now -- called after every renderSessions(), since that regenerates the
+  // session rows (and their weather slots) from scratch on each data.json poll.
+  function renderWeather(forecastByDate) {
+    document.querySelectorAll('[data-weather]').forEach(slot => {
+      const iso = slot.getAttribute('data-weather');
+      const f = iso && forecastByDate[iso];
+      if (!f) return;
+      slot.innerHTML = `<span class="session-weather-icon">${weatherIcon(f.code)}</span>${Math.round(f.max)}°/${Math.round(f.min)}°`;
+    });
+  }
+
+  async function startWeather() {
+    try {
+      const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || 'null');
+      if (cached && (Date.now() - cached.fetchedAt) < WEATHER_CACHE_TTL_MS) {
+        cachedWeather = cached.data;
+        renderWeather(cachedWeather);
+        return;
+      }
+    } catch (e) { /* corrupt cache, fall through to a fresh fetch */ }
+
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${CHI_LAT}&longitude=${CHI_LON}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=America%2FChicago&past_days=7&forecast_days=7`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('weather fetch failed');
+      const json = await res.json();
+      const forecastByDate = {};
+      json.daily.time.forEach((iso, i) => {
+        forecastByDate[iso] = {
+          max: json.daily.temperature_2m_max[i],
+          min: json.daily.temperature_2m_min[i],
+          code: json.daily.weathercode[i]
+        };
+      });
+      localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify({ fetchedAt: Date.now(), data: forecastByDate }));
+      cachedWeather = forecastByDate;
+      renderWeather(cachedWeather);
+    } catch (e) {
+      // Fail silently -- weather badges just stay blank, rest of the dashboard is unaffected.
+    }
   }
 </script>
 
