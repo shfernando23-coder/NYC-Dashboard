@@ -1,36 +1,65 @@
 {
-  "updated_at": "2026-08-10T20:30:00.000Z",
-  "source": "manual-backfill",
+  "updated_at": "2026-08-11T10:00:03.755Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-10T20:30:00.000Z"
+    "last_updated": "2026-08-11T10:00:03.755Z"
   },
   "this_week": {
     "week_number": 1,
     "phase": "Build",
-    "actual_km": 9.53,
+    "actual_km": 280,
     "target_km": 54,
-    "sessions_done": 1,
+    "sessions_done": 27,
     "sessions_planned": 4,
-    "activity_dates": ["2026-08-10"],
-    "long_run_km": null
+    "activity_dates": [
+      "2026-08-10",
+      "2026-08-08",
+      "2026-08-06",
+      "2026-08-05",
+      "2026-08-04",
+      "2026-08-02",
+      "2026-07-31",
+      "2026-07-29",
+      "2026-07-28",
+      "2026-07-26",
+      "2026-07-25",
+      "2026-07-24",
+      "2026-07-22",
+      "2026-07-21",
+      "2026-07-20",
+      "2026-07-18",
+      "2026-07-13",
+      "2026-07-12",
+      "2026-07-09",
+      "2026-07-08",
+      "2026-07-06",
+      "2026-07-04",
+      "2026-07-02",
+      "2026-06-30"
+    ],
+    "long_run_km": 28
   },
-  "last_run": {
-    "activity_id": 19686887086,
-    "name": "Easy Run",
-    "type_label": "Easy run",
-    "date_label": "Monday 10 Aug",
-    "week_label": "Week 1",
-    "distance_km": 9.53,
-    "distance_mi": 5.92,
-    "pace_per_mi": "9:41",
-    "pace_per_km": "6:01",
-    "avg_hr": 133,
-    "target_km": 10,
-    "vs_plan_km": -0.5,
-    "coach_note": ""
-  },
-  "coach_analysis": ""
+  "recovery": {
+    "date": "2026-08-10",
+    "date_label": "Monday, Aug 10",
+    "day_of_week": "Sunday",
+    "system_timestamp": "2026-08-11T10:00:03.755Z",
+    "score": 86,
+    "readiness_score": 86,
+    "sleep_score": 81,
+    "signal": "go",
+    "signal_label": "✓ Go -- train as planned",
+    "status_label": "Well rested",
+    "advice": "Recovery is solid -- green light for today's session as planned.",
+    "sleep": {
+      "deep": 93,
+      "rem": 61,
+      "efficiency": 86,
+      "restfulness": 66,
+      "timing": 100,
+      "total": 80
+    }
+  }
 }
