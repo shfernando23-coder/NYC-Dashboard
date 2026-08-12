@@ -1,77 +1,22 @@
 {
-  "updated_at": "2026-08-12T22:00:04.053Z",
-  "meta": {
-    "block_start": "2026-08-10",
-    "current_week": 1,
-    "current_phase": "Build",
-    "last_updated": "2026-08-12T22:00:04.053Z"
-  },
-  "recovery": {
-    "date": "2026-08-12",
-    "date_label": "Wednesday, Aug 12",
-    "day_of_week": "Tuesday",
-    "system_timestamp": "2026-08-12T22:00:04.051Z",
-    "score": 78,
-    "readiness_score": 78,
-    "sleep_score": 62,
-    "signal": "caution",
-    "signal_label": "⚠ Caution -- keep it easy",
-    "status_label": "Moderate recovery",
-    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
-    "sleep": {
-      "deep": 77,
-      "rem": 42,
-      "efficiency": 67,
-      "restfulness": 53,
-      "timing": 100,
-      "total": 54
-    }
-  },
-  "recovery_history": [
+  "date": "2026-08-10",
+  "week_number": 1,
+  "session_type": "easy",
+  "activity_id": 19686887086,
+  "distance_km": 9.53,
+  "legs": "Tired from the outset, likely carryover from Saturday's long run.",
+  "notes": "Felt tough for what was supposed to be an easy run. Feet were sore.",
+  "journal_entries": [
     {
-      "date": "2026-08-12",
-      "score": 78,
-      "signal": "caution"
-    }
-  ],
-  "last_run": {
-    "activity_id": 19686887086,
-    "name": "Easy Run",
-    "type_label": "Run",
-    "date_label": "Monday, Aug 10",
-    "activity_date": "2026-08-10",
-    "day_of_week": "Monday",
-    "system_timestamp": "2026-08-12T22:00:04.052Z",
-    "week_label": "Week 1",
-    "distance_km": 9.53,
-    "distance_mi": 5.92,
-    "pace_per_mi": "9:41",
-    "pace_per_km": "6:01",
-    "avg_hr": 133,
-    "target_km": 21,
-    "vs_plan_km": -11.5,
-    "coach_note": ""
-  },
-  "flags": [
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
       "date": "2026-08-10",
       "week_number": 1,
-      "message": "Easy Run (9.53km, Monday, Aug 10) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+      "session_type": "easy",
+      "activity_id": 19686887086,
+      "distance_km": 9.53,
+      "legs": "Tired from the outset, likely carryover from Saturday's long run.",
+      "notes": "Felt tough for what was supposed to be an easy run. Feet were sore.",
+      "logged_at": "2026-08-12T22:18:14.903Z"
     }
   ],
-  "this_week": {
-    "week_number": 1,
-    "phase": "Build",
-    "actual_km": 9.5,
-    "target_km": 54,
-    "sessions_done": 1,
-    "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-10"
-    ],
-    "long_run_km": null
-  },
-  "volume_history": []
+  "updated_at": "2026-08-12T22:18:14.903Z"
 }
