@@ -1,107 +1,50 @@
 {
-  "updated_at": "2026-08-12T13:30:04.184Z",
+  "updated_at": "2026-08-12T22:00:00.813Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-12T13:30:04.184Z"
+    "last_updated": "2026-08-12T22:00:00.813Z"
   },
   "recovery": {
-    "date": "2026-08-11",
-    "date_label": "Tuesday, Aug 11",
-    "day_of_week": "Monday",
-    "system_timestamp": "2026-08-12T13:30:04.180Z",
+    "date": "2026-08-12",
+    "date_label": "Wednesday, Aug 12",
+    "day_of_week": "Tuesday",
+    "system_timestamp": "2026-08-12T22:00:00.811Z",
     "score": 78,
     "readiness_score": 78,
-    "sleep_score": 71,
+    "sleep_score": 62,
     "signal": "caution",
     "signal_label": "⚠ Caution -- keep it easy",
     "status_label": "Moderate recovery",
     "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
     "sleep": {
-      "deep": 96,
-      "rem": 72,
-      "efficiency": 95,
+      "deep": 77,
+      "rem": 42,
+      "efficiency": 67,
       "restfulness": 53,
-      "timing": 79,
-      "total": 62
+      "timing": 100,
+      "total": 54
     }
   },
-  "last_run": {
-    "activity_id": 19686887086,
-    "name": "Easy Run",
-    "type_label": "Run",
-    "date_label": "Monday, Aug 10",
-    "activity_date": "2026-08-10",
-    "day_of_week": "Monday",
-    "system_timestamp": "2026-08-12T13:30:04.184Z",
-    "week_label": "Week 1",
-    "distance_km": 9.53,
-    "distance_mi": 5.92,
-    "pace_per_mi": "9:41",
-    "pace_per_km": "6:01",
-    "avg_hr": 133,
-    "target_km": 21,
-    "vs_plan_km": -11.5,
-    "coach_note": ""
-  },
-  "flags": [
+  "recovery_history": [
     {
-      "type": "weekly_volume_overreach",
-      "severity": "warning",
-      "date": "2026-08-10T15:00:33Z",
-      "week_number": 1,
-      "message": "Week 1 volume 280.0km vs 54km target -- 419% over. Tomorrow is mandatory easy regardless of what is scheduled."
-    },
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-10",
-      "week_number": 1,
-      "message": "Easy Run (9.53km, Monday, Aug 10) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+      "date": "2026-08-12",
+      "score": 78,
+      "signal": "caution"
     }
   ],
+  "last_run": null,
+  "flags": [],
   "this_week": {
     "week_number": 1,
     "phase": "Build",
-    "actual_km": 280,
+    "actual_km": 0,
     "target_km": 54,
-    "sessions_done": 27,
+    "sessions_done": 0,
     "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-10",
-      "2026-08-08",
-      "2026-08-06",
-      "2026-08-05",
-      "2026-08-04",
-      "2026-08-02",
-      "2026-07-31",
-      "2026-07-29",
-      "2026-07-28",
-      "2026-07-26",
-      "2026-07-25",
-      "2026-07-24",
-      "2026-07-22",
-      "2026-07-21",
-      "2026-07-20",
-      "2026-07-18",
-      "2026-07-13",
-      "2026-07-12",
-      "2026-07-09",
-      "2026-07-08",
-      "2026-07-06",
-      "2026-07-04",
-      "2026-07-02",
-      "2026-06-30"
-    ],
-    "long_run_km": 28
+    "activity_dates": [],
+    "long_run_km": null
   },
-  "pre_block_history": [
-    { "week_start": "2026-06-29", "week_end": "2026-07-05", "label": "29 Jun", "actual_km": 38.8 },
-    { "week_start": "2026-07-06", "week_end": "2026-07-12", "label": "6 Jul", "actual_km": 50.4 },
-    { "week_start": "2026-07-13", "week_end": "2026-07-19", "label": "13 Jul", "actual_km": 32.3 },
-    { "week_start": "2026-07-20", "week_end": "2026-07-26", "label": "20 Jul", "actual_km": 71.5 },
-    { "week_start": "2026-07-27", "week_end": "2026-08-02", "label": "27 Jul", "actual_km": 34.6 },
-    { "week_start": "2026-08-03", "week_end": "2026-08-09", "label": "3 Aug", "actual_km": 50.0 }
-  ]
+  "volume_history": []
 }
