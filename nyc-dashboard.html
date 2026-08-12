@@ -345,10 +345,12 @@
   }
   .vol-bar-track.state-actual { border: 1px solid var(--orange-mid); }
   .vol-bar-track.state-current { border: 1px solid var(--orange-mid); }
+  .vol-bar-track.state-pre-block { border: 1px solid var(--border-2); }
   .vol-bar-fill {
     position: absolute; left: 0; right: 0; bottom: 0;
     border-radius: 3px 3px 0 0; background: var(--orange); min-height: 2px;
   }
+  .vol-bar-fill.pre-block { background: var(--text-3); opacity: .55; }
   .vol-bar-remainder {
     position: absolute; left: 0; right: 0; bottom: 0;
     border-radius: 3px 3px 0 0; background: var(--orange-mid); border: 1px solid var(--orange);
@@ -682,6 +684,7 @@
       12-week volume plan · km
     </div>
     <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--text-3);opacity:.55"></div>Pre-block history</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--surface-2);border:1px solid var(--border-2)"></div>Planned</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Completed</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--orange-mid);border:1px solid var(--orange)"></div>In progress</div>
@@ -991,12 +994,27 @@
     const weeks = plan.weeks;
     const currentWeek = currentWeekFromPlan(plan);
     const history = Array.isArray(d.volume_history) ? d.volume_history : [];
-    const maxKm = Math.max.apply(null, weeks.map(w => w.total_km || 0)) || 1;
+    const preBlock = Array.isArray(d.pre_block_history) ? d.pre_block_history : [];
+    const maxKm = Math.max.apply(null, weeks.map(w => w.total_km || 0).concat(preBlock.map(w => w.actual_km || 0))) || 1;
     const peakWeek = weeks.reduce((best, w) => (w.total_km > best.total_km ? w : best), weeks[0]).week;
     const finalWeek = weeks[weeks.length - 1].week;
     const TRACK_MAX_PX = 110;
 
-    chart.innerHTML = weeks.map(w => {
+    // Pre-block bars: real Strava history from before the plan started (no
+    // target, so the track height IS the actual bar -- solid, muted grey).
+    const preBlockHtml = preBlock.map(w => {
+      const actualPx = Math.max(6, (w.actual_km / maxKm) * TRACK_MAX_PX);
+      return '<div class="vol-bar-col">'
+        + '<div class="vol-bar-value">' + w.actual_km + ' km</div>'
+        + '<div class="vol-bar-track state-pre-block" style="height:' + actualPx + 'px">'
+        +   '<div class="vol-bar-fill pre-block" style="height:' + actualPx + 'px"></div>'
+        + '</div>'
+        + '<div class="vol-week-label">' + w.label + '</div>'
+        + '<div class="vol-phase-label">History</div>'
+        + '</div>';
+    }).join('');
+
+    chart.innerHTML = preBlockHtml + weeks.map(w => {
       const n = w.week;
       const targetPx = Math.max(6, (w.total_km / maxKm) * TRACK_MAX_PX);
       let actual = null;

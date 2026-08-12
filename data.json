@@ -59,5 +59,13 @@
       "week_number": 1,
       "message": "Easy Run (9.53km, Mon 10 Aug) was not delivered by the Strava webhook and was then dropped from data.json by two later scheduled syncs. Restored manually -- a daily reconciliation backstop is being added so this fills in automatically next time."
     }
+  ],
+  "pre_block_history": [
+    { "week_start": "2026-06-29", "week_end": "2026-07-05", "label": "29 Jun", "actual_km": 38.8 },
+    { "week_start": "2026-07-06", "week_end": "2026-07-12", "label": "6 Jul", "actual_km": 50.4 },
+    { "week_start": "2026-07-13", "week_end": "2026-07-19", "label": "13 Jul", "actual_km": 32.3 },
+    { "week_start": "2026-07-20", "week_end": "2026-07-26", "label": "20 Jul", "actual_km": 71.5 },
+    { "week_start": "2026-07-27", "week_end": "2026-08-02", "label": "27 Jul", "actual_km": 34.6 },
+    { "week_start": "2026-08-03", "week_end": "2026-08-09", "label": "3 Aug", "actual_km": 50.0 }
   ]
 }
