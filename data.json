@@ -1,30 +1,50 @@
 {
-  "updated_at": "2026-08-13T00:06:47.563Z",
-  "source": "n8n",
+  "updated_at": "2026-08-13T01:00:00.834Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-13T00:06:47.563Z"
+    "last_updated": "2026-08-13T01:00:00.834Z"
   },
-  "last_run": {
-    "activity_id": 19718305142,
-    "name": "Evening Run",
-    "type_label": "Recovery run",
+  "recovery": {
+    "date": "2026-08-12",
     "date_label": "Wednesday, Aug 12",
-    "activity_date": "2026-08-12",
     "day_of_week": "Wednesday",
-    "system_timestamp": "2026-08-13T00:06:47.563Z",
-    "week_label": "Week 1",
-    "distance_km": 5.02,
-    "distance_mi": 3.12,
-    "pace_per_mi": "9:18",
-    "pace_per_km": "5:47",
-    "avg_hr": 149,
-    "target_km": 21,
-    "vs_plan_km": -16,
-    "coach_note": ""
+    "system_timestamp": "2026-08-13T01:00:00.833Z",
+    "score": 78,
+    "readiness_score": 78,
+    "sleep_score": 62,
+    "signal": "caution",
+    "signal_label": "⚠ Caution -- keep it easy",
+    "status_label": "Moderate recovery",
+    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
+    "sleep": {
+      "deep": 77,
+      "rem": 42,
+      "efficiency": 67,
+      "restfulness": 53,
+      "timing": 100,
+      "total": 54
+    }
   },
-  "recovery": null,
-  "flags": []
+  "recovery_history": [
+    {
+      "date": "2026-08-12",
+      "score": 78,
+      "signal": "caution"
+    }
+  ],
+  "last_run": null,
+  "flags": [],
+  "this_week": {
+    "week_number": 1,
+    "phase": "Build",
+    "actual_km": 0,
+    "target_km": 54,
+    "sessions_done": 0,
+    "sessions_planned": 4,
+    "activity_dates": [],
+    "long_run_km": null
+  },
+  "volume_history": []
 }
