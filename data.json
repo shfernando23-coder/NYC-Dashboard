@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-08-13T01:00:03.614Z",
+  "updated_at": "2026-08-13T01:08:47.981Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-13T01:00:03.614Z"
+    "last_updated": "2026-08-13T01:08:47.981Z"
   },
   "recovery": {
     "date": "2026-08-12",
@@ -74,5 +74,6 @@
     ],
     "long_run_km": null
   },
-  "volume_history": []
+  "volume_history": [],
+  "coach_analysis": "SESSION: Interval Workout (unplanned — athlete deviated from prescribed session), Aug 12, 6:35pm\nStructure: 4x800m efforts with jogging recovery between reps (athlete-improvised, not per plan)\n\nREP SPLITS:\nRep 1: 0.80km, 2:52, 3:33/km\nRep 2: 0.79km, 2:59, 3:46/km\nRep 3: 0.81km, 3:14, 3:59/km\nRep 4: 0.81km, 3:12, 3:56/km\n\nRECOVERY JOGS:\nRest 1: 0.39km, 2:53, 7:20/km\nRest 2: 0.43km, 3:51, 8:54/km\nRest 3: 0.47km, 4:29, 9:32/km\nRest 4: 0.42km, 4:40, 11:02/km\n\nSESSION TOTALS: 5.02km, avg HR 149, max HR 184, suffer score 32, cadence 157.8 spm (below 170 spm floor)\n\nASSESSMENT:\n- All 4 reps ran faster than prescribed interval pace ceiling (3:50-4:05/km) and well outside tempo zone (4:10-4:15/km); reps 1-2 were run at 5K-effort pace, not tempo/threshold effort.\n- Clear fade pattern across reps: 3:33 -> 3:46 -> 3:59 -> 3:56/km (~26 sec/km slowdown from rep 1 to rep 3), consistent with an overly aggressive start.\n- Recovery jogs progressively slowed and lengthened (7:20 -> 8:54 -> 9:32 -> 11:02/km, rest duration 2:53 -> 4:40), indicating cumulative fatigue and incomplete recovery between reps.\n- Cadence 157.8 spm continues a two-session-running trend below the 170 spm floor.\n\nDIRECTIVES FOR NEXT QUALITY SESSION:\n1. Set and hold a hard pace ceiling before starting (3:50/km min for intervals, or 4:10/km for tempo) — decide session type in advance, not mid-run.\n2. Target even or slightly negative splits across reps; rep 1 should not be the fastest rep by a wide margin.\n3. Standardize recovery interval (fixed time/distance) to enable clean fatigue comparison across future sessions.\n4. Cadence correction remains outstanding across two consecutive sessions — active metronome cueing recommended at target 170-176 spm.\n\nNOTE: This session replaces the originally scheduled workout for this date; logged as athlete-initiated deviation from plan, not a missed/rescheduled prescribed session."
 }
