@@ -1,78 +1,38 @@
 {
-  "updated_at": "2026-08-14T20:00:04.677Z",
+  "updated_at": "2026-08-14T20:30:10.537Z",
+  "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-14T20:00:04.677Z"
+    "last_updated": "2026-08-14T20:30:10.537Z"
   },
-  "recovery": {
-    "date": "2026-08-14",
-    "date_label": "Friday, Aug 14",
-    "day_of_week": "Friday",
-    "system_timestamp": "2026-08-14T20:00:04.676Z",
-    "score": 78,
-    "readiness_score": 78,
-    "sleep_score": 74,
-    "signal": "caution",
-    "signal_label": "⚠ Caution -- keep it easy",
-    "status_label": "Moderate recovery",
-    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
-    "sleep": {
-      "deep": 90,
-      "rem": 66,
-      "efficiency": 74,
-      "restfulness": 57,
-      "timing": 99,
-      "total": 69
-    }
-  },
-  "recovery_history": [
-    {
-      "date": "2026-08-14",
-      "score": 78,
-      "signal": "caution"
-    }
-  ],
   "last_run": {
-    "activity_id": 19718305142,
-    "name": "Evening Run",
-    "type_label": "Recovery run",
-    "date_label": "Wednesday, Aug 12",
-    "activity_date": "2026-08-12",
-    "day_of_week": "Wednesday",
-    "system_timestamp": "2026-08-14T20:00:04.677Z",
+    "activity_id": 19743439884,
+    "name": "Afternoon Run",
+    "type_label": "Run",
+    "date_label": "Friday, Aug 14",
+    "activity_date": "2026-08-14",
+    "day_of_week": "Friday",
+    "system_timestamp": "2026-08-14T20:30:10.537Z",
     "week_label": "Week 1",
-    "distance_km": 5.02,
-    "distance_mi": 3.12,
-    "pace_per_mi": "9:18",
-    "pace_per_km": "5:47",
-    "avg_hr": 149,
+    "distance_km": 6.73,
+    "distance_mi": 4.18,
+    "pace_per_mi": "9:01",
+    "pace_per_km": "5:36",
+    "avg_hr": 137,
     "target_km": 21,
-    "vs_plan_km": -16,
+    "vs_plan_km": -14.3,
     "coach_note": ""
   },
+  "recovery": null,
   "flags": [
     {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-12",
+      "type": "rest_day_run",
+      "severity": "info",
+      "date": "2026-08-14T14:46:09Z",
       "week_number": 1,
-      "message": "Evening Run (5.02km, Wednesday, Aug 12) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+      "message": "Ran 6.73km on a scheduled rest day (Friday). One occurrence is fine -- a pattern across two weeks must be named in the weekly summary."
     }
-  ],
-  "this_week": {
-    "week_number": 1,
-    "phase": "Build",
-    "actual_km": 14.5,
-    "target_km": 54,
-    "sessions_done": 2,
-    "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-12",
-      "2026-08-10"
-    ],
-    "long_run_km": null
-  },
-  "volume_history": []
+  ]
 }
