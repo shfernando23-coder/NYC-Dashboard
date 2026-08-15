@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-15T01:00:00.709Z",
+  "updated_at": "2026-08-15T01:00:03.744Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-15T01:00:00.709Z"
+    "last_updated": "2026-08-15T01:00:03.744Z"
   },
   "recovery": {
     "date": "2026-08-14",
     "date_label": "Friday, Aug 14",
     "day_of_week": "Friday",
-    "system_timestamp": "2026-08-15T01:00:00.708Z",
+    "system_timestamp": "2026-08-15T01:00:03.743Z",
     "score": 78,
     "readiness_score": 78,
     "sleep_score": 74,
@@ -34,16 +34,52 @@
       "signal": "caution"
     }
   ],
-  "last_run": null,
-  "flags": [],
+  "last_run": {
+    "activity_id": 19743439884,
+    "name": "Afternoon Run",
+    "type_label": "Run",
+    "date_label": "Friday, Aug 14",
+    "activity_date": "2026-08-14",
+    "day_of_week": "Friday",
+    "system_timestamp": "2026-08-15T01:00:03.744Z",
+    "week_label": "Week 1",
+    "distance_km": 6.73,
+    "distance_mi": 4.18,
+    "pace_per_mi": "9:01",
+    "pace_per_km": "5:36",
+    "avg_hr": 137,
+    "target_km": 21,
+    "vs_plan_km": -14.3,
+    "coach_note": ""
+  },
+  "flags": [
+    {
+      "type": "rest_day_run",
+      "severity": "info",
+      "date": "2026-08-14T14:46:09Z",
+      "week_number": 1,
+      "message": "Ran 6.73km on a scheduled rest day (Friday). One occurrence is fine -- a pattern across two weeks must be named in the weekly summary."
+    },
+    {
+      "type": "missed_webhook_backfill",
+      "severity": "warning",
+      "date": "2026-08-14",
+      "week_number": 1,
+      "message": "Afternoon Run (6.73km, Friday, Aug 14) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+    }
+  ],
   "this_week": {
     "week_number": 1,
     "phase": "Build",
-    "actual_km": 0,
+    "actual_km": 21.3,
     "target_km": 54,
-    "sessions_done": 0,
+    "sessions_done": 3,
     "sessions_planned": 4,
-    "activity_dates": [],
+    "activity_dates": [
+      "2026-08-14",
+      "2026-08-12",
+      "2026-08-10"
+    ],
     "long_run_km": null
   },
   "volume_history": []
