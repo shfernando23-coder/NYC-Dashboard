@@ -1,50 +1,57 @@
 {
-  "updated_at": "2026-08-16T22:00:00.697Z",
+  "updated_at": "2026-08-16T22:00:02.322Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 1,
     "current_phase": "Build",
-    "last_updated": "2026-08-16T22:00:00.697Z"
+    "last_updated": "2026-08-16T22:00:02.322Z"
   },
-  "recovery": {
-    "date": "2026-08-14",
-    "date_label": "Friday, Aug 14",
-    "day_of_week": "Friday",
-    "system_timestamp": "2026-08-16T22:00:00.697Z",
-    "score": 78,
-    "readiness_score": 78,
-    "sleep_score": 74,
-    "signal": "caution",
-    "signal_label": "⚠ Caution -- keep it easy",
-    "status_label": "Moderate recovery",
-    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
-    "sleep": {
-      "deep": 90,
-      "rem": 66,
-      "efficiency": 74,
-      "restfulness": 57,
-      "timing": 99,
-      "total": 69
-    }
-  },
-  "recovery_history": [
-    {
-      "date": "2026-08-14",
-      "score": 78,
-      "signal": "caution"
-    }
-  ],
-  "last_run": null,
-  "flags": [],
-  "this_week": {
+  "week_stats": {
+    "generated_at": "2026-08-16T22:00:02.321Z",
     "week_number": 1,
     "phase": "Build",
-    "actual_km": 0,
-    "target_km": 54,
-    "sessions_done": 0,
-    "sessions_planned": 4,
-    "activity_dates": [],
-    "long_run_km": null
+    "total_km": 288,
+    "volume_target_km": 54,
+    "hard_sessions_completed": 10,
+    "hard_sessions_planned": 2,
+    "long_run": {
+      "activity_date": "2026-08-15",
+      "day_of_week": "Saturday",
+      "system_timestamp": "2026-08-16T22:00:02.322Z",
+      "distance_km": 28,
+      "pace_per_km": "5:20",
+      "avg_hr": 149
+    },
+    "avg_readiness": 77.8,
+    "avg_sleep_score": 72.3,
+    "flags_last_8_days": []
   },
-  "volume_history": []
+  "volume_history": [
+    288,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "long_run_history": [
+    28,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
 }
