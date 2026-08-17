@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-17T20:00:02.254Z",
+  "updated_at": "2026-08-17T20:00:05.969Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 2,
     "current_phase": "Build",
-    "last_updated": "2026-08-17T20:00:02.254Z"
+    "last_updated": "2026-08-17T20:00:05.969Z"
   },
   "recovery": {
     "date": "2026-08-17",
     "date_label": "Monday, Aug 17",
     "day_of_week": "Monday",
-    "system_timestamp": "2026-08-17T20:00:02.253Z",
+    "system_timestamp": "2026-08-17T20:00:05.968Z",
     "score": 83,
     "readiness_score": 83,
     "sleep_score": 83,
@@ -34,8 +34,40 @@
       "signal": "go"
     }
   ],
-  "last_run": null,
-  "flags": [],
+  "last_run": {
+    "activity_id": 19753942680,
+    "name": "Morning Run",
+    "type_label": "Long run",
+    "date_label": "Saturday, Aug 15",
+    "activity_date": "2026-08-15",
+    "day_of_week": "Saturday",
+    "system_timestamp": "2026-08-17T20:00:05.969Z",
+    "week_label": "Week 1",
+    "distance_km": 28.01,
+    "distance_mi": 17.4,
+    "pace_per_mi": "8:35",
+    "pace_per_km": "5:20",
+    "avg_hr": 149,
+    "target_km": 21,
+    "vs_plan_km": 7,
+    "coach_note": ""
+  },
+  "flags": [
+    {
+      "type": "long_run_overreach",
+      "severity": "warning",
+      "date": "2026-08-15T07:07:25Z",
+      "week_number": 1,
+      "message": "Long run 28.01km vs 21km target -- +7.0km overreach. Recovery cost recorded; next Wednesday session may need modification."
+    },
+    {
+      "type": "missed_webhook_backfill",
+      "severity": "warning",
+      "date": "2026-08-15",
+      "week_number": 1,
+      "message": "Morning Run (28.01km, Saturday, Aug 15) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+    }
+  ],
   "this_week": {
     "week_number": 2,
     "phase": "Build",
