@@ -1,23 +1,51 @@
 {
-  "updated_at": "2026-08-22T15:00:00.649Z",
+  "updated_at": "2026-08-22T15:00:04.130Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 2,
     "current_phase": "Build",
-    "last_updated": "2026-08-22T15:00:00.650Z"
+    "last_updated": "2026-08-22T15:00:04.130Z"
   },
   "recovery": null,
   "recovery_history": [],
-  "last_run": null,
-  "flags": [],
+  "last_run": {
+    "activity_id": 19830987980,
+    "name": "Evening Run",
+    "type_label": "Run",
+    "date_label": "Thursday, Aug 20",
+    "activity_date": "2026-08-20",
+    "day_of_week": "Thursday",
+    "system_timestamp": "2026-08-22T15:00:04.130Z",
+    "week_label": "Week 2",
+    "distance_km": 8.47,
+    "distance_mi": 5.26,
+    "pace_per_mi": "9:45",
+    "pace_per_km": "6:03",
+    "avg_hr": 134,
+    "target_km": 25,
+    "vs_plan_km": -16.5,
+    "coach_note": ""
+  },
+  "flags": [
+    {
+      "type": "missed_webhook_backfill",
+      "severity": "warning",
+      "date": "2026-08-20",
+      "week_number": 2,
+      "message": "Evening Run (8.47km, Thursday, Aug 20) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+    }
+  ],
   "this_week": {
     "week_number": 2,
     "phase": "Build",
-    "actual_km": 0,
+    "actual_km": 25.6,
     "target_km": 60,
-    "sessions_done": 0,
+    "sessions_done": 3,
     "sessions_planned": 4,
-    "activity_dates": [],
+    "activity_dates": [
+      "2026-08-20",
+      "2026-08-17"
+    ],
     "long_run_km": null
   },
   "volume_history": []
