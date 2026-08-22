@@ -1,30 +1,50 @@
 {
-  "updated_at": "2026-08-22T15:03:21.215Z",
-  "source": "n8n",
+  "updated_at": "2026-08-22T16:00:00.613Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 2,
     "current_phase": "Build",
-    "last_updated": "2026-08-22T15:03:21.215Z"
+    "last_updated": "2026-08-22T16:00:00.613Z"
   },
-  "last_run": {
-    "activity_id": 19852202191,
-    "name": "Morning Run",
-    "type_label": "Long run",
+  "recovery": {
+    "date": "2026-08-22",
     "date_label": "Saturday, Aug 22",
-    "activity_date": "2026-08-22",
     "day_of_week": "Saturday",
-    "system_timestamp": "2026-08-22T15:03:21.215Z",
-    "week_label": "Week 2",
-    "distance_km": 21.34,
-    "distance_mi": 13.26,
-    "pace_per_mi": "7:38",
-    "pace_per_km": "4:44",
-    "avg_hr": 161,
-    "target_km": 25,
-    "vs_plan_km": -3.7,
-    "coach_note": ""
+    "system_timestamp": "2026-08-22T16:00:00.613Z",
+    "score": 62,
+    "readiness_score": 62,
+    "sleep_score": 67,
+    "signal": "caution",
+    "signal_label": "⚠ Caution -- keep it easy",
+    "status_label": "Moderate recovery",
+    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
+    "sleep": {
+      "deep": 54,
+      "rem": 42,
+      "efficiency": 69,
+      "restfulness": 68,
+      "timing": 83,
+      "total": 66
+    }
   },
-  "recovery": null,
-  "flags": []
+  "recovery_history": [
+    {
+      "date": "2026-08-22",
+      "score": 62,
+      "signal": "caution"
+    }
+  ],
+  "last_run": null,
+  "flags": [],
+  "this_week": {
+    "week_number": 2,
+    "phase": "Build",
+    "actual_km": 0,
+    "target_km": 60,
+    "sessions_done": 0,
+    "sessions_planned": 4,
+    "activity_dates": [],
+    "long_run_km": null
+  },
+  "volume_history": []
 }
