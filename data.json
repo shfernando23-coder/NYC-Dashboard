@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-23T21:00:00.725Z",
+  "updated_at": "2026-08-23T21:00:03.593Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 2,
     "current_phase": "Build",
-    "last_updated": "2026-08-23T21:00:00.725Z"
+    "last_updated": "2026-08-23T21:00:03.593Z"
   },
   "recovery": {
     "date": "2026-08-22",
     "date_label": "Saturday, Aug 22",
     "day_of_week": "Saturday",
-    "system_timestamp": "2026-08-23T21:00:00.725Z",
+    "system_timestamp": "2026-08-23T21:00:03.591Z",
     "score": 62,
     "readiness_score": 62,
     "sleep_score": 67,
@@ -34,17 +34,47 @@
       "signal": "caution"
     }
   ],
-  "last_run": null,
-  "flags": [],
+  "last_run": {
+    "activity_id": 19870107628,
+    "name": "Afternoon Run",
+    "type_label": "Run",
+    "date_label": "Sunday, Aug 23",
+    "activity_date": "2026-08-23",
+    "day_of_week": "Sunday",
+    "system_timestamp": "2026-08-23T21:00:03.593Z",
+    "week_label": "Week 2",
+    "distance_km": 9.14,
+    "distance_mi": 5.68,
+    "pace_per_mi": "9:01",
+    "pace_per_km": "5:36",
+    "avg_hr": 145,
+    "target_km": 25,
+    "vs_plan_km": -15.9,
+    "coach_note": ""
+  },
+  "flags": [
+    {
+      "type": "missed_webhook_backfill",
+      "severity": "warning",
+      "date": "2026-08-23",
+      "week_number": 2,
+      "message": "Afternoon Run (9.14km, Sunday, Aug 23) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+    }
+  ],
   "this_week": {
     "week_number": 2,
     "phase": "Build",
-    "actual_km": 0,
+    "actual_km": 56.9,
     "target_km": 60,
-    "sessions_done": 0,
+    "sessions_done": 5,
     "sessions_planned": 4,
-    "activity_dates": [],
-    "long_run_km": null
+    "activity_dates": [
+      "2026-08-23",
+      "2026-08-22",
+      "2026-08-20",
+      "2026-08-17"
+    ],
+    "long_run_km": 21.3
   },
   "volume_history": []
 }
