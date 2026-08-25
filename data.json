@@ -1,75 +1,30 @@
 {
-  "updated_at": "2026-08-25T00:00:03.983Z",
+  "updated_at": "2026-08-25T00:22:32.994Z",
+  "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-25T00:00:03.983Z"
+    "last_updated": "2026-08-25T00:22:32.994Z"
   },
-  "recovery": {
-    "date": "2026-08-24",
-    "date_label": "Monday, Aug 24",
-    "day_of_week": "Monday",
-    "system_timestamp": "2026-08-25T00:00:03.981Z",
-    "score": 73,
-    "readiness_score": 73,
-    "sleep_score": 75,
-    "signal": "caution",
-    "signal_label": "⚠ Caution -- keep it easy",
-    "status_label": "Moderate recovery",
-    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
-    "sleep": {
-      "deep": 71,
-      "rem": 57,
-      "efficiency": 81,
-      "restfulness": 68,
-      "timing": 100,
-      "total": 73
-    }
-  },
-  "recovery_history": [
-    {
-      "date": "2026-08-24",
-      "score": 73,
-      "signal": "caution"
-    }
-  ],
   "last_run": {
-    "activity_id": 19870107628,
-    "name": "Afternoon Run",
+    "activity_id": 19885868930,
+    "name": "Evening Run",
     "type_label": "Run",
-    "date_label": "Sunday, Aug 23",
-    "activity_date": "2026-08-23",
-    "day_of_week": "Sunday",
-    "system_timestamp": "2026-08-25T00:00:03.982Z",
-    "week_label": "Week 2",
-    "distance_km": 9.14,
-    "distance_mi": 5.68,
-    "pace_per_mi": "9:01",
-    "pace_per_km": "5:36",
-    "avg_hr": 145,
-    "target_km": 25,
-    "vs_plan_km": -15.9,
+    "date_label": "Monday, Aug 24",
+    "activity_date": "2026-08-24",
+    "day_of_week": "Monday",
+    "system_timestamp": "2026-08-25T00:22:32.994Z",
+    "week_label": "Week 3",
+    "distance_km": 7.52,
+    "distance_mi": 4.67,
+    "pace_per_mi": "9:06",
+    "pace_per_km": "5:39",
+    "avg_hr": 139,
+    "target_km": 28,
+    "vs_plan_km": -20.5,
     "coach_note": ""
   },
-  "flags": [
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-23",
-      "week_number": 2,
-      "message": "Afternoon Run (9.14km, Sunday, Aug 23) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
-    }
-  ],
-  "this_week": {
-    "week_number": 3,
-    "phase": "Build",
-    "actual_km": 0,
-    "target_km": 66,
-    "sessions_done": 0,
-    "sessions_planned": 4,
-    "activity_dates": [],
-    "long_run_km": null
-  },
-  "volume_history": []
+  "recovery": null,
+  "flags": []
 }
