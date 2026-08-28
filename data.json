@@ -1,77 +1,23 @@
 {
-  "updated_at": "2026-08-28T02:00:03.599Z",
+  "updated_at": "2026-08-28T10:00:00.740Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-28T02:00:03.599Z"
+    "last_updated": "2026-08-28T10:00:00.741Z"
   },
-  "recovery": {
-    "date": "2026-08-25",
-    "date_label": "Tuesday, Aug 25",
-    "day_of_week": "Tuesday",
-    "system_timestamp": "2026-08-28T02:00:03.597Z",
-    "score": 69,
-    "readiness_score": 69,
-    "sleep_score": 71,
-    "signal": "caution",
-    "signal_label": "⚠ Caution -- keep it easy",
-    "status_label": "Moderate recovery",
-    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
-    "sleep": {
-      "deep": 82,
-      "rem": 50,
-      "efficiency": 96,
-      "restfulness": 73,
-      "timing": 79,
-      "total": 61
-    }
-  },
-  "recovery_history": [
-    {
-      "date": "2026-08-25",
-      "score": 69,
-      "signal": "caution"
-    }
-  ],
-  "last_run": {
-    "activity_id": 19922168029,
-    "name": "Morning Run",
-    "type_label": "Recovery run",
-    "date_label": "Thursday, Aug 27",
-    "activity_date": "2026-08-27",
-    "day_of_week": "Thursday",
-    "system_timestamp": "2026-08-28T02:00:03.599Z",
-    "week_label": "Week 3",
-    "distance_km": 5.87,
-    "distance_mi": 3.65,
-    "pace_per_mi": "7:18",
-    "pace_per_km": "4:32",
-    "avg_hr": 154,
-    "target_km": 28,
-    "vs_plan_km": -22.1,
-    "coach_note": ""
-  },
-  "flags": [
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-27",
-      "week_number": 3,
-      "message": "Morning Run (5.87km, Thursday, Aug 27) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
-    }
-  ],
+  "recovery": null,
+  "recovery_history": [],
+  "last_run": null,
+  "flags": [],
   "this_week": {
     "week_number": 3,
     "phase": "Build",
-    "actual_km": 13.4,
+    "actual_km": 0,
     "target_km": 66,
-    "sessions_done": 2,
+    "sessions_done": 0,
     "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-27",
-      "2026-08-24"
-    ],
+    "activity_dates": [],
     "long_run_km": null
   },
   "volume_history": []
