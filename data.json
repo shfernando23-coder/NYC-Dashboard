@@ -1,52 +1,38 @@
 {
-  "updated_at": "2026-08-29T15:00:03.829Z",
+  "updated_at": "2026-08-29T15:23:19.337Z",
+  "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-29T15:00:03.829Z"
+    "last_updated": "2026-08-29T15:23:19.337Z"
   },
-  "recovery": null,
-  "recovery_history": [],
   "last_run": {
-    "activity_id": 19922168029,
+    "activity_id": 19951026038,
     "name": "Morning Run",
-    "type_label": "Recovery run",
-    "date_label": "Thursday, Aug 27",
-    "activity_date": "2026-08-27",
-    "day_of_week": "Thursday",
-    "system_timestamp": "2026-08-29T15:00:03.829Z",
+    "type_label": "Long run",
+    "date_label": "Saturday, Aug 29",
+    "activity_date": "2026-08-29",
+    "day_of_week": "Saturday",
+    "system_timestamp": "2026-08-29T15:23:19.337Z",
     "week_label": "Week 3",
-    "distance_km": 5.87,
-    "distance_mi": 3.65,
-    "pace_per_mi": "7:18",
-    "pace_per_km": "4:32",
-    "avg_hr": 154,
+    "distance_km": 33.63,
+    "distance_mi": 20.9,
+    "pace_per_mi": "8:14",
+    "pace_per_km": "5:07",
+    "avg_hr": 151,
     "target_km": 28,
-    "vs_plan_km": -22.1,
+    "vs_plan_km": 5.6,
     "coach_note": ""
   },
+  "recovery": null,
   "flags": [
     {
-      "type": "missed_webhook_backfill",
+      "type": "long_run_overreach",
       "severity": "warning",
-      "date": "2026-08-27",
+      "date": "2026-08-29T07:09:12Z",
       "week_number": 3,
-      "message": "Morning Run (5.87km, Thursday, Aug 27) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+      "message": "Long run 33.63km vs 28km target -- +5.6km overreach. Recovery cost recorded; next Wednesday session may need modification."
     }
-  ],
-  "this_week": {
-    "week_number": 3,
-    "phase": "Build",
-    "actual_km": 13.4,
-    "target_km": 66,
-    "sessions_done": 2,
-    "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-27",
-      "2026-08-24"
-    ],
-    "long_run_km": null
-  },
-  "volume_history": []
+  ]
 }
