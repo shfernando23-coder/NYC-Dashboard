@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-08-29T15:23:19.337Z",
+  "updated_at": "2026-08-29T15:57:20.741Z",
   "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-29T15:23:19.337Z"
+    "last_updated": "2026-08-29T15:57:20.741Z"
   },
   "last_run": {
     "activity_id": 19951026038,
-    "name": "Morning Run",
+    "name": "Longer one!",
     "type_label": "Long run",
     "date_label": "Saturday, Aug 29",
     "activity_date": "2026-08-29",
     "day_of_week": "Saturday",
-    "system_timestamp": "2026-08-29T15:23:19.337Z",
+    "system_timestamp": "2026-08-29T15:57:20.741Z",
     "week_label": "Week 3",
     "distance_km": 33.63,
     "distance_mi": 20.9,
