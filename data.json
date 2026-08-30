@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-30T16:00:04.637Z",
+  "updated_at": "2026-08-30T17:00:00.878Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-30T16:00:04.637Z"
+    "last_updated": "2026-08-30T17:00:00.878Z"
   },
   "recovery": {
     "date": "2026-08-30",
     "date_label": "Sunday, Aug 30",
     "day_of_week": "Sunday",
-    "system_timestamp": "2026-08-30T16:00:04.634Z",
+    "system_timestamp": "2026-08-30T17:00:00.878Z",
     "score": 65,
     "readiness_score": 65,
     "sleep_score": 69,
@@ -34,53 +34,17 @@
       "signal": "caution"
     }
   ],
-  "last_run": {
-    "activity_id": 19951026038,
-    "name": "Longer one!",
-    "type_label": "Long run",
-    "date_label": "Saturday, Aug 29",
-    "activity_date": "2026-08-29",
-    "day_of_week": "Saturday",
-    "system_timestamp": "2026-08-30T16:00:04.637Z",
-    "week_label": "Week 3",
-    "distance_km": 33.63,
-    "distance_mi": 20.9,
-    "pace_per_mi": "8:14",
-    "pace_per_km": "5:07",
-    "avg_hr": 151,
-    "target_km": 28,
-    "vs_plan_km": 5.6,
-    "coach_note": ""
-  },
-  "flags": [
-    {
-      "type": "long_run_overreach",
-      "severity": "warning",
-      "date": "2026-08-29T07:09:12Z",
-      "week_number": 3,
-      "message": "Long run 33.63km vs 28km target -- +5.6km overreach. Recovery cost recorded; next Wednesday session may need modification."
-    },
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-29",
-      "week_number": 3,
-      "message": "Longer one! (33.63km, Saturday, Aug 29) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
-    }
-  ],
+  "last_run": null,
+  "flags": [],
   "this_week": {
     "week_number": 3,
     "phase": "Build",
-    "actual_km": 47,
+    "actual_km": 0,
     "target_km": 66,
-    "sessions_done": 3,
+    "sessions_done": 0,
     "sessions_planned": 4,
-    "activity_dates": [
-      "2026-08-29",
-      "2026-08-27",
-      "2026-08-24"
-    ],
-    "long_run_km": 33.6
+    "activity_dates": [],
+    "long_run_km": null
   },
   "volume_history": []
 }
