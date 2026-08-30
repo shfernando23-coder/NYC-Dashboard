@@ -1,57 +1,50 @@
 {
-  "updated_at": "2026-08-30T22:00:03.500Z",
+  "updated_at": "2026-08-30T23:00:00.674Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 3,
     "current_phase": "Build",
-    "last_updated": "2026-08-30T22:00:03.500Z"
+    "last_updated": "2026-08-30T23:00:00.674Z"
   },
-  "week_stats": {
-    "generated_at": "2026-08-30T22:00:03.500Z",
+  "recovery": {
+    "date": "2026-08-30",
+    "date_label": "Sunday, Aug 30",
+    "day_of_week": "Sunday",
+    "system_timestamp": "2026-08-30T23:00:00.674Z",
+    "score": 65,
+    "readiness_score": 65,
+    "sleep_score": 69,
+    "signal": "caution",
+    "signal_label": "⚠ Caution -- keep it easy",
+    "status_label": "Moderate recovery",
+    "advice": "Recovery is mixed -- keep intensity down today and reassess tomorrow.",
+    "sleep": {
+      "deep": 65,
+      "rem": 60,
+      "efficiency": 79,
+      "restfulness": 69,
+      "timing": 100,
+      "total": 63
+    }
+  },
+  "recovery_history": [
+    {
+      "date": "2026-08-30",
+      "score": 65,
+      "signal": "caution"
+    }
+  ],
+  "last_run": null,
+  "flags": [],
+  "this_week": {
     "week_number": 3,
     "phase": "Build",
-    "total_km": 303.8,
-    "volume_target_km": 66,
-    "hard_sessions_completed": 10,
-    "hard_sessions_planned": 2,
-    "long_run": {
-      "activity_date": "2026-08-29",
-      "day_of_week": "Saturday",
-      "system_timestamp": "2026-08-30T22:00:03.500Z",
-      "distance_km": 33.6,
-      "pace_per_km": "5:07",
-      "avg_hr": 151
-    },
-    "avg_readiness": 65.3,
-    "avg_sleep_score": 68.1,
-    "flags_last_8_days": []
+    "actual_km": 0,
+    "target_km": 66,
+    "sessions_done": 0,
+    "sessions_planned": 4,
+    "activity_dates": [],
+    "long_run_km": null
   },
-  "volume_history": [
-    null,
-    null,
-    303.8,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-  "long_run_history": [
-    null,
-    null,
-    33.6,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ]
+  "volume_history": []
 }
