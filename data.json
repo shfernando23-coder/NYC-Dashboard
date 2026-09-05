@@ -1,30 +1,24 @@
 {
-  "updated_at": "2026-09-05T16:26:40.314Z",
-  "source": "n8n",
+  "updated_at": "2026-09-05T17:00:00.646Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 4,
     "current_phase": "Build",
-    "last_updated": "2026-09-05T16:26:40.314Z"
-  },
-  "last_run": {
-    "activity_id": 20049690225,
-    "name": "San Diego",
-    "type_label": "Run",
-    "date_label": "Saturday, Sep 5",
-    "activity_date": "2026-09-05",
-    "day_of_week": "Saturday",
-    "system_timestamp": "2026-09-05T16:26:40.314Z",
-    "week_label": "Week 4",
-    "distance_km": 12.54,
-    "distance_mi": 7.79,
-    "pace_per_mi": "8:31",
-    "pace_per_km": "5:17",
-    "avg_hr": null,
-    "target_km": null,
-    "vs_plan_km": null,
-    "coach_note": ""
+    "last_updated": "2026-09-05T17:00:00.646Z"
   },
   "recovery": null,
-  "flags": []
+  "recovery_history": [],
+  "last_run": null,
+  "flags": [],
+  "this_week": {
+    "week_number": 4,
+    "phase": "Build",
+    "actual_km": 0,
+    "target_km": 49,
+    "sessions_done": 0,
+    "sessions_planned": 4,
+    "activity_dates": [],
+    "long_run_km": null
+  },
+  "volume_history": []
 }
