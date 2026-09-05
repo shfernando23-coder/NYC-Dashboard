@@ -1,56 +1,30 @@
 {
-  "updated_at": "2026-09-05T16:00:04.702Z",
+  "updated_at": "2026-09-05T16:22:51.837Z",
+  "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 4,
     "current_phase": "Build",
-    "last_updated": "2026-09-05T16:00:04.702Z"
+    "last_updated": "2026-09-05T16:22:51.837Z"
   },
-  "recovery": null,
-  "recovery_history": [],
   "last_run": {
-    "activity_id": 19951026038,
-    "name": "Longer one!",
-    "type_label": "Long run",
-    "date_label": "Saturday, Aug 29",
-    "activity_date": "2026-08-29",
+    "activity_id": 20049690225,
+    "name": "Morning Run",
+    "type_label": "Run",
+    "date_label": "Saturday, Sep 5",
+    "activity_date": "2026-09-05",
     "day_of_week": "Saturday",
-    "system_timestamp": "2026-09-05T16:00:04.702Z",
-    "week_label": "Week 3",
-    "distance_km": 33.63,
-    "distance_mi": 20.9,
-    "pace_per_mi": "8:14",
-    "pace_per_km": "5:07",
-    "avg_hr": 151,
-    "target_km": 28,
-    "vs_plan_km": 5.6,
+    "system_timestamp": "2026-09-05T16:22:51.837Z",
+    "week_label": "Week 4",
+    "distance_km": 12.54,
+    "distance_mi": 7.79,
+    "pace_per_mi": "8:31",
+    "pace_per_km": "5:17",
+    "avg_hr": null,
+    "target_km": null,
+    "vs_plan_km": null,
     "coach_note": ""
   },
-  "flags": [
-    {
-      "type": "long_run_overreach",
-      "severity": "warning",
-      "date": "2026-08-29T07:09:12Z",
-      "week_number": 3,
-      "message": "Long run 33.63km vs 28km target -- +5.6km overreach. Recovery cost recorded; next Wednesday session may need modification."
-    },
-    {
-      "type": "missed_webhook_backfill",
-      "severity": "warning",
-      "date": "2026-08-29",
-      "week_number": 3,
-      "message": "Longer one! (33.63km, Saturday, Aug 29) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
-    }
-  ],
-  "this_week": {
-    "week_number": 4,
-    "phase": "Build",
-    "actual_km": 0,
-    "target_km": 49,
-    "sessions_done": 0,
-    "sessions_planned": 4,
-    "activity_dates": [],
-    "long_run_km": null
-  },
-  "volume_history": []
+  "recovery": null,
+  "flags": []
 }
