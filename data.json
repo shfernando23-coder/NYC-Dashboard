@@ -1,24 +1,51 @@
 {
-  "updated_at": "2026-09-05T23:00:00.672Z",
+  "updated_at": "2026-09-05T23:00:03.821Z",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 4,
     "current_phase": "Build",
-    "last_updated": "2026-09-05T23:00:00.672Z"
+    "last_updated": "2026-09-05T23:00:03.821Z"
   },
   "recovery": null,
   "recovery_history": [],
-  "last_run": null,
-  "flags": [],
+  "last_run": {
+    "activity_id": 20049690225,
+    "name": "San Diego",
+    "type_label": "Run",
+    "date_label": "Saturday, Sep 5",
+    "activity_date": "2026-09-05",
+    "day_of_week": "Saturday",
+    "system_timestamp": "2026-09-05T23:00:03.821Z",
+    "week_label": "Week 4",
+    "distance_km": 12.54,
+    "distance_mi": 7.79,
+    "pace_per_mi": "8:31",
+    "pace_per_km": "5:17",
+    "avg_hr": null,
+    "target_km": null,
+    "vs_plan_km": null,
+    "coach_note": ""
+  },
+  "flags": [
+    {
+      "type": "missed_webhook_backfill",
+      "severity": "warning",
+      "date": "2026-09-05",
+      "week_number": 4,
+      "message": "San Diego (12.54km, Saturday, Sep 5) picked up by the daily reconciliation sync -- the Strava webhook did not deliver it."
+    }
+  ],
   "this_week": {
     "week_number": 4,
     "phase": "Build",
-    "actual_km": 0,
+    "actual_km": 12.5,
     "target_km": 49,
-    "sessions_done": 0,
+    "sessions_done": 1,
     "sessions_planned": 4,
-    "activity_dates": [],
-    "long_run_km": null
+    "activity_dates": [
+      "2026-09-05"
+    ],
+    "long_run_km": 12.5
   },
   "volume_history": []
 }
