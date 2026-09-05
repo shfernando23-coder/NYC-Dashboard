@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-09-05T16:22:51.837Z",
+  "updated_at": "2026-09-05T16:26:40.314Z",
   "source": "n8n",
   "meta": {
     "block_start": "2026-08-10",
     "current_week": 4,
     "current_phase": "Build",
-    "last_updated": "2026-09-05T16:22:51.837Z"
+    "last_updated": "2026-09-05T16:26:40.314Z"
   },
   "last_run": {
     "activity_id": 20049690225,
-    "name": "Morning Run",
+    "name": "San Diego",
     "type_label": "Run",
     "date_label": "Saturday, Sep 5",
     "activity_date": "2026-09-05",
     "day_of_week": "Saturday",
-    "system_timestamp": "2026-09-05T16:22:51.837Z",
+    "system_timestamp": "2026-09-05T16:26:40.314Z",
     "week_label": "Week 4",
     "distance_km": 12.54,
     "distance_mi": 7.79,
